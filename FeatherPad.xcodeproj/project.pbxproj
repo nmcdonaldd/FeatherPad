@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		245C69EAA2C2F55848FD217D /* Pods_FeatherPad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C400E1BB33CD26D0864616 /* Pods_FeatherPad.framework */; };
+		640025597103AF9FCE3EE913 /* Pods_FeatherPadTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DBC094D6C08BAF2353D4E5 /* Pods_FeatherPadTests.framework */; };
+		D5375B1D1EDD34FD00FB45A5 /* FeatherPadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5375B1C1EDD34FD00FB45A5 /* FeatherPadClient.swift */; };
+		D5708971E3C45C7D2064487A /* Pods_FeatherPadUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A20AE1F4FE1C53B0F3AF39 /* Pods_FeatherPadUITests.framework */; };
 		D5D6E7871EDD153B004A0E91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E7861EDD153B004A0E91 /* AppDelegate.swift */; };
 		D5D6E7891EDD153B004A0E91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E7881EDD153B004A0E91 /* ViewController.swift */; };
 		D5D6E78C1EDD153B004A0E91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5D6E78A1EDD153B004A0E91 /* Main.storyboard */; };
@@ -15,6 +19,13 @@
 		D5D6E7941EDD153B004A0E91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5D6E7921EDD153B004A0E91 /* LaunchScreen.storyboard */; };
 		D5D6E79F1EDD153B004A0E91 /* FeatherPadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E79E1EDD153B004A0E91 /* FeatherPadTests.swift */; };
 		D5D6E7AA1EDD153C004A0E91 /* FeatherPadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E7A91EDD153C004A0E91 /* FeatherPadUITests.swift */; };
+		D5D6E7BE1EDD162B004A0E91 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E7BD1EDD162B004A0E91 /* User.swift */; };
+		D5D6E7C01EDD1641004A0E91 /* FeatherPadDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E7BF1EDD1641004A0E91 /* FeatherPadDevice.swift */; };
+		D5D6E7C21EDD16CE004A0E91 /* ForcePadAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E7C11EDD16CE004A0E91 /* ForcePadAlerts.swift */; };
+		D5D6E7C41EDD1CAC004A0E91 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E7C31EDD1CAC004A0E91 /* LoginViewController.swift */; };
+		D5D6E7C61EDD1CCA004A0E91 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5D6E7C51EDD1CCA004A0E91 /* Login.storyboard */; };
+		D5D6E7C81EDD1F50004A0E91 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E7C71EDD1F50004A0E91 /* LoginButton.swift */; };
+		D5D6E7CB1EDD1FBC004A0E91 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E7CA1EDD1FBC004A0E91 /* Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +46,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10D7E20FDD11691E7005953A /* Pods-FeatherPad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeatherPad.release.xcconfig"; path = "Pods/Target Support Files/Pods-FeatherPad/Pods-FeatherPad.release.xcconfig"; sourceTree = "<group>"; };
+		205A91D3B53B9F44412C6340 /* Pods-FeatherPadUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeatherPadUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FeatherPadUITests/Pods-FeatherPadUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		20DE889546DCBDCCA60AA507 /* Pods-FeatherPadUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeatherPadUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FeatherPadUITests/Pods-FeatherPadUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2C5750ED910026F417808D68 /* Pods-FeatherPad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeatherPad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FeatherPad/Pods-FeatherPad.debug.xcconfig"; sourceTree = "<group>"; };
+		64DBC094D6C08BAF2353D4E5 /* Pods_FeatherPadTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeatherPadTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95C400E1BB33CD26D0864616 /* Pods_FeatherPad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeatherPad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD05BECC91D3CDC797AF097C /* Pods-FeatherPadTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeatherPadTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FeatherPadTests/Pods-FeatherPadTests.release.xcconfig"; sourceTree = "<group>"; };
+		B1A20AE1F4FE1C53B0F3AF39 /* Pods_FeatherPadUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeatherPadUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5375B1C1EDD34FD00FB45A5 /* FeatherPadClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatherPadClient.swift; sourceTree = "<group>"; };
 		D5D6E7831EDD153B004A0E91 /* FeatherPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeatherPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5D6E7861EDD153B004A0E91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5D6E7881EDD153B004A0E91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +69,14 @@
 		D5D6E7A51EDD153B004A0E91 /* FeatherPadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeatherPadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5D6E7A91EDD153C004A0E91 /* FeatherPadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatherPadUITests.swift; sourceTree = "<group>"; };
 		D5D6E7AB1EDD153C004A0E91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5D6E7BD1EDD162B004A0E91 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D5D6E7BF1EDD1641004A0E91 /* FeatherPadDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatherPadDevice.swift; sourceTree = "<group>"; };
+		D5D6E7C11EDD16CE004A0E91 /* ForcePadAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForcePadAlerts.swift; sourceTree = "<group>"; };
+		D5D6E7C31EDD1CAC004A0E91 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D5D6E7C51EDD1CCA004A0E91 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		D5D6E7C71EDD1F50004A0E91 /* LoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
+		D5D6E7CA1EDD1FBC004A0E91 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		DE3E84C9790322A215A570EB /* Pods-FeatherPadTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeatherPadTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FeatherPadTests/Pods-FeatherPadTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				245C69EAA2C2F55848FD217D /* Pods_FeatherPad.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				640025597103AF9FCE3EE913 /* Pods_FeatherPadTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +100,44 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5708971E3C45C7D2064487A /* Pods_FeatherPadUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7433F01F7CFE59BAE62F5347 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2C5750ED910026F417808D68 /* Pods-FeatherPad.debug.xcconfig */,
+				10D7E20FDD11691E7005953A /* Pods-FeatherPad.release.xcconfig */,
+				DE3E84C9790322A215A570EB /* Pods-FeatherPadTests.debug.xcconfig */,
+				AD05BECC91D3CDC797AF097C /* Pods-FeatherPadTests.release.xcconfig */,
+				205A91D3B53B9F44412C6340 /* Pods-FeatherPadUITests.debug.xcconfig */,
+				20DE889546DCBDCCA60AA507 /* Pods-FeatherPadUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8474677500D1632D88F0F070 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95C400E1BB33CD26D0864616 /* Pods_FeatherPad.framework */,
+				64DBC094D6C08BAF2353D4E5 /* Pods_FeatherPadTests.framework */,
+				B1A20AE1F4FE1C53B0F3AF39 /* Pods_FeatherPadUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D5375B1E1EDD350D00FB45A5 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D5375B1C1EDD34FD00FB45A5 /* FeatherPadClient.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 		D5D6E77A1EDD153B004A0E91 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +145,8 @@
 				D5D6E79D1EDD153B004A0E91 /* FeatherPadTests */,
 				D5D6E7A81EDD153C004A0E91 /* FeatherPadUITests */,
 				D5D6E7841EDD153B004A0E91 /* Products */,
+				7433F01F7CFE59BAE62F5347 /* Pods */,
+				8474677500D1632D88F0F070 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,10 +164,11 @@
 			isa = PBXGroup;
 			children = (
 				D5D6E7861EDD153B004A0E91 /* AppDelegate.swift */,
-				D5D6E7881EDD153B004A0E91 /* ViewController.swift */,
-				D5D6E78A1EDD153B004A0E91 /* Main.storyboard */,
+				D5375B1E1EDD350D00FB45A5 /* API */,
+				D5D6E7B81EDD1555004A0E91 /* UI */,
+				D5D6E7B71EDD154E004A0E91 /* Models */,
+				D5D6E7C91EDD1F9A004A0E91 /* Supporting Files */,
 				D5D6E7901EDD153B004A0E91 /* Assets.xcassets */,
-				D5D6E7921EDD153B004A0E91 /* LaunchScreen.storyboard */,
 				D5D6E7951EDD153B004A0E91 /* Info.plist */,
 				D5D6E78D1EDD153B004A0E91 /* FeatherPad.xcdatamodeld */,
 			);
@@ -128,6 +193,61 @@
 			path = FeatherPadUITests;
 			sourceTree = "<group>";
 		};
+		D5D6E7B71EDD154E004A0E91 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D5D6E7BD1EDD162B004A0E91 /* User.swift */,
+				D5D6E7BF1EDD1641004A0E91 /* FeatherPadDevice.swift */,
+				D5D6E7C11EDD16CE004A0E91 /* ForcePadAlerts.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		D5D6E7B81EDD1555004A0E91 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D5D6E7BC1EDD15C1004A0E91 /* Storyboards */,
+				D5D6E7BB1EDD1573004A0E91 /* VIews */,
+				D5D6E7BA1EDD156A004A0E91 /* View Controllers */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		D5D6E7BA1EDD156A004A0E91 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D5D6E7881EDD153B004A0E91 /* ViewController.swift */,
+				D5D6E7C31EDD1CAC004A0E91 /* LoginViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D5D6E7BB1EDD1573004A0E91 /* VIews */ = {
+			isa = PBXGroup;
+			children = (
+				D5D6E7C71EDD1F50004A0E91 /* LoginButton.swift */,
+			);
+			name = VIews;
+			sourceTree = "<group>";
+		};
+		D5D6E7BC1EDD15C1004A0E91 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D5D6E7921EDD153B004A0E91 /* LaunchScreen.storyboard */,
+				D5D6E78A1EDD153B004A0E91 /* Main.storyboard */,
+				D5D6E7C51EDD1CCA004A0E91 /* Login.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		D5D6E7C91EDD1F9A004A0E91 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D5D6E7CA1EDD1FBC004A0E91 /* Common.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +255,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5D6E7AE1EDD153C004A0E91 /* Build configuration list for PBXNativeTarget "FeatherPad" */;
 			buildPhases = (
+				6D24205210A1DA19707EF9F4 /* [CP] Check Pods Manifest.lock */,
 				D5D6E77F1EDD153B004A0E91 /* Sources */,
 				D5D6E7801EDD153B004A0E91 /* Frameworks */,
 				D5D6E7811EDD153B004A0E91 /* Resources */,
+				004E03405310B10EB61C2AF7 /* [CP] Embed Pods Frameworks */,
+				CD899C3CD81E4F1760727C88 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +275,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5D6E7B11EDD153C004A0E91 /* Build configuration list for PBXNativeTarget "FeatherPadTests" */;
 			buildPhases = (
+				84324D2EE19F1F6DD6480841 /* [CP] Check Pods Manifest.lock */,
 				D5D6E7961EDD153B004A0E91 /* Sources */,
 				D5D6E7971EDD153B004A0E91 /* Frameworks */,
 				D5D6E7981EDD153B004A0E91 /* Resources */,
+				4C58D770847603B17CD2F958 /* [CP] Embed Pods Frameworks */,
+				C1A5969DA27692E02731C4CB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +296,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5D6E7B41EDD153C004A0E91 /* Build configuration list for PBXNativeTarget "FeatherPadUITests" */;
 			buildPhases = (
+				C38B562C4CAD44E063259F14 /* [CP] Check Pods Manifest.lock */,
 				D5D6E7A11EDD153B004A0E91 /* Sources */,
 				D5D6E7A21EDD153B004A0E91 /* Frameworks */,
 				D5D6E7A31EDD153B004A0E91 /* Resources */,
+				C5A8924E47CFDF96C489D121 /* [CP] Embed Pods Frameworks */,
+				68931314255D21B0ACD28594 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -238,6 +367,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5D6E7C61EDD1CCA004A0E91 /* Login.storyboard in Resources */,
 				D5D6E7941EDD153B004A0E91 /* LaunchScreen.storyboard in Resources */,
 				D5D6E7911EDD153B004A0E91 /* Assets.xcassets in Resources */,
 				D5D6E78C1EDD153B004A0E91 /* Main.storyboard in Resources */,
@@ -260,13 +390,158 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		004E03405310B10EB61C2AF7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FeatherPad/Pods-FeatherPad-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4C58D770847603B17CD2F958 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FeatherPadTests/Pods-FeatherPadTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		68931314255D21B0ACD28594 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FeatherPadUITests/Pods-FeatherPadUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D24205210A1DA19707EF9F4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		84324D2EE19F1F6DD6480841 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C1A5969DA27692E02731C4CB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FeatherPadTests/Pods-FeatherPadTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C38B562C4CAD44E063259F14 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C5A8924E47CFDF96C489D121 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FeatherPadUITests/Pods-FeatherPadUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD899C3CD81E4F1760727C88 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FeatherPad/Pods-FeatherPad-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D5D6E77F1EDD153B004A0E91 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5D6E7C41EDD1CAC004A0E91 /* LoginViewController.swift in Sources */,
+				D5D6E7C81EDD1F50004A0E91 /* LoginButton.swift in Sources */,
+				D5D6E7BE1EDD162B004A0E91 /* User.swift in Sources */,
 				D5D6E7891EDD153B004A0E91 /* ViewController.swift in Sources */,
+				D5D6E7CB1EDD1FBC004A0E91 /* Common.swift in Sources */,
+				D5D6E7C21EDD16CE004A0E91 /* ForcePadAlerts.swift in Sources */,
+				D5375B1D1EDD34FD00FB45A5 /* FeatherPadClient.swift in Sources */,
 				D5D6E7871EDD153B004A0E91 /* AppDelegate.swift in Sources */,
+				D5D6E7C01EDD1641004A0E91 /* FeatherPadDevice.swift in Sources */,
 				D5D6E78F1EDD153B004A0E91 /* FeatherPad.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,6 +692,7 @@
 		};
 		D5D6E7AF1EDD153C004A0E91 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C5750ED910026F417808D68 /* Pods-FeatherPad.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3QT27T2PJ3;
@@ -430,6 +706,7 @@
 		};
 		D5D6E7B01EDD153C004A0E91 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10D7E20FDD11691E7005953A /* Pods-FeatherPad.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3QT27T2PJ3;
@@ -443,6 +720,7 @@
 		};
 		D5D6E7B21EDD153C004A0E91 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE3E84C9790322A215A570EB /* Pods-FeatherPadTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -458,6 +736,7 @@
 		};
 		D5D6E7B31EDD153C004A0E91 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD05BECC91D3CDC797AF097C /* Pods-FeatherPadTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -473,6 +752,7 @@
 		};
 		D5D6E7B51EDD153C004A0E91 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 205A91D3B53B9F44412C6340 /* Pods-FeatherPadUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 3QT27T2PJ3;
@@ -487,6 +767,7 @@
 		};
 		D5D6E7B61EDD153C004A0E91 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20DE889546DCBDCCA60AA507 /* Pods-FeatherPadUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 3QT27T2PJ3;
@@ -518,6 +799,7 @@
 				D5D6E7B01EDD153C004A0E91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D5D6E7B11EDD153C004A0E91 /* Build configuration list for PBXNativeTarget "FeatherPadTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +808,7 @@
 				D5D6E7B31EDD153C004A0E91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D5D6E7B41EDD153C004A0E91 /* Build configuration list for PBXNativeTarget "FeatherPadUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +817,7 @@
 				D5D6E7B61EDD153C004A0E91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
