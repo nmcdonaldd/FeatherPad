@@ -1,0 +1,554 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D5D6E7871EDD153B004A0E91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E7861EDD153B004A0E91 /* AppDelegate.swift */; };
+		D5D6E7891EDD153B004A0E91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E7881EDD153B004A0E91 /* ViewController.swift */; };
+		D5D6E78C1EDD153B004A0E91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5D6E78A1EDD153B004A0E91 /* Main.storyboard */; };
+		D5D6E78F1EDD153B004A0E91 /* FeatherPad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E78D1EDD153B004A0E91 /* FeatherPad.xcdatamodeld */; };
+		D5D6E7911EDD153B004A0E91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5D6E7901EDD153B004A0E91 /* Assets.xcassets */; };
+		D5D6E7941EDD153B004A0E91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5D6E7921EDD153B004A0E91 /* LaunchScreen.storyboard */; };
+		D5D6E79F1EDD153B004A0E91 /* FeatherPadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E79E1EDD153B004A0E91 /* FeatherPadTests.swift */; };
+		D5D6E7AA1EDD153C004A0E91 /* FeatherPadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E7A91EDD153C004A0E91 /* FeatherPadUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D5D6E79B1EDD153B004A0E91 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5D6E77B1EDD153B004A0E91 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5D6E7821EDD153B004A0E91;
+			remoteInfo = FeatherPad;
+		};
+		D5D6E7A61EDD153C004A0E91 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5D6E77B1EDD153B004A0E91 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5D6E7821EDD153B004A0E91;
+			remoteInfo = FeatherPad;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D5D6E7831EDD153B004A0E91 /* FeatherPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeatherPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5D6E7861EDD153B004A0E91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D5D6E7881EDD153B004A0E91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D5D6E78B1EDD153B004A0E91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D5D6E78E1EDD153B004A0E91 /* FeatherPad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FeatherPad.xcdatamodel; sourceTree = "<group>"; };
+		D5D6E7901EDD153B004A0E91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D5D6E7931EDD153B004A0E91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D5D6E7951EDD153B004A0E91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5D6E79A1EDD153B004A0E91 /* FeatherPadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeatherPadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5D6E79E1EDD153B004A0E91 /* FeatherPadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatherPadTests.swift; sourceTree = "<group>"; };
+		D5D6E7A01EDD153B004A0E91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5D6E7A51EDD153B004A0E91 /* FeatherPadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeatherPadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5D6E7A91EDD153C004A0E91 /* FeatherPadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatherPadUITests.swift; sourceTree = "<group>"; };
+		D5D6E7AB1EDD153C004A0E91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D5D6E7801EDD153B004A0E91 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5D6E7971EDD153B004A0E91 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5D6E7A21EDD153B004A0E91 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D5D6E77A1EDD153B004A0E91 = {
+			isa = PBXGroup;
+			children = (
+				D5D6E7851EDD153B004A0E91 /* FeatherPad */,
+				D5D6E79D1EDD153B004A0E91 /* FeatherPadTests */,
+				D5D6E7A81EDD153C004A0E91 /* FeatherPadUITests */,
+				D5D6E7841EDD153B004A0E91 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D5D6E7841EDD153B004A0E91 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D5D6E7831EDD153B004A0E91 /* FeatherPad.app */,
+				D5D6E79A1EDD153B004A0E91 /* FeatherPadTests.xctest */,
+				D5D6E7A51EDD153B004A0E91 /* FeatherPadUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D5D6E7851EDD153B004A0E91 /* FeatherPad */ = {
+			isa = PBXGroup;
+			children = (
+				D5D6E7861EDD153B004A0E91 /* AppDelegate.swift */,
+				D5D6E7881EDD153B004A0E91 /* ViewController.swift */,
+				D5D6E78A1EDD153B004A0E91 /* Main.storyboard */,
+				D5D6E7901EDD153B004A0E91 /* Assets.xcassets */,
+				D5D6E7921EDD153B004A0E91 /* LaunchScreen.storyboard */,
+				D5D6E7951EDD153B004A0E91 /* Info.plist */,
+				D5D6E78D1EDD153B004A0E91 /* FeatherPad.xcdatamodeld */,
+			);
+			path = FeatherPad;
+			sourceTree = "<group>";
+		};
+		D5D6E79D1EDD153B004A0E91 /* FeatherPadTests */ = {
+			isa = PBXGroup;
+			children = (
+				D5D6E79E1EDD153B004A0E91 /* FeatherPadTests.swift */,
+				D5D6E7A01EDD153B004A0E91 /* Info.plist */,
+			);
+			path = FeatherPadTests;
+			sourceTree = "<group>";
+		};
+		D5D6E7A81EDD153C004A0E91 /* FeatherPadUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D5D6E7A91EDD153C004A0E91 /* FeatherPadUITests.swift */,
+				D5D6E7AB1EDD153C004A0E91 /* Info.plist */,
+			);
+			path = FeatherPadUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D5D6E7821EDD153B004A0E91 /* FeatherPad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5D6E7AE1EDD153C004A0E91 /* Build configuration list for PBXNativeTarget "FeatherPad" */;
+			buildPhases = (
+				D5D6E77F1EDD153B004A0E91 /* Sources */,
+				D5D6E7801EDD153B004A0E91 /* Frameworks */,
+				D5D6E7811EDD153B004A0E91 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FeatherPad;
+			productName = FeatherPad;
+			productReference = D5D6E7831EDD153B004A0E91 /* FeatherPad.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D5D6E7991EDD153B004A0E91 /* FeatherPadTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5D6E7B11EDD153C004A0E91 /* Build configuration list for PBXNativeTarget "FeatherPadTests" */;
+			buildPhases = (
+				D5D6E7961EDD153B004A0E91 /* Sources */,
+				D5D6E7971EDD153B004A0E91 /* Frameworks */,
+				D5D6E7981EDD153B004A0E91 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5D6E79C1EDD153B004A0E91 /* PBXTargetDependency */,
+			);
+			name = FeatherPadTests;
+			productName = FeatherPadTests;
+			productReference = D5D6E79A1EDD153B004A0E91 /* FeatherPadTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D5D6E7A41EDD153B004A0E91 /* FeatherPadUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5D6E7B41EDD153C004A0E91 /* Build configuration list for PBXNativeTarget "FeatherPadUITests" */;
+			buildPhases = (
+				D5D6E7A11EDD153B004A0E91 /* Sources */,
+				D5D6E7A21EDD153B004A0E91 /* Frameworks */,
+				D5D6E7A31EDD153B004A0E91 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5D6E7A71EDD153C004A0E91 /* PBXTargetDependency */,
+			);
+			name = FeatherPadUITests;
+			productName = FeatherPadUITests;
+			productReference = D5D6E7A51EDD153B004A0E91 /* FeatherPadUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D5D6E77B1EDD153B004A0E91 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = nickdonald;
+				TargetAttributes = {
+					D5D6E7821EDD153B004A0E91 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 3QT27T2PJ3;
+						ProvisioningStyle = Automatic;
+					};
+					D5D6E7991EDD153B004A0E91 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 3QT27T2PJ3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D5D6E7821EDD153B004A0E91;
+					};
+					D5D6E7A41EDD153B004A0E91 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 3QT27T2PJ3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D5D6E7821EDD153B004A0E91;
+					};
+				};
+			};
+			buildConfigurationList = D5D6E77E1EDD153B004A0E91 /* Build configuration list for PBXProject "FeatherPad" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D5D6E77A1EDD153B004A0E91;
+			productRefGroup = D5D6E7841EDD153B004A0E91 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D5D6E7821EDD153B004A0E91 /* FeatherPad */,
+				D5D6E7991EDD153B004A0E91 /* FeatherPadTests */,
+				D5D6E7A41EDD153B004A0E91 /* FeatherPadUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D5D6E7811EDD153B004A0E91 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5D6E7941EDD153B004A0E91 /* LaunchScreen.storyboard in Resources */,
+				D5D6E7911EDD153B004A0E91 /* Assets.xcassets in Resources */,
+				D5D6E78C1EDD153B004A0E91 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5D6E7981EDD153B004A0E91 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5D6E7A31EDD153B004A0E91 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D5D6E77F1EDD153B004A0E91 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5D6E7891EDD153B004A0E91 /* ViewController.swift in Sources */,
+				D5D6E7871EDD153B004A0E91 /* AppDelegate.swift in Sources */,
+				D5D6E78F1EDD153B004A0E91 /* FeatherPad.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5D6E7961EDD153B004A0E91 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5D6E79F1EDD153B004A0E91 /* FeatherPadTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5D6E7A11EDD153B004A0E91 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5D6E7AA1EDD153C004A0E91 /* FeatherPadUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D5D6E79C1EDD153B004A0E91 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5D6E7821EDD153B004A0E91 /* FeatherPad */;
+			targetProxy = D5D6E79B1EDD153B004A0E91 /* PBXContainerItemProxy */;
+		};
+		D5D6E7A71EDD153C004A0E91 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5D6E7821EDD153B004A0E91 /* FeatherPad */;
+			targetProxy = D5D6E7A61EDD153C004A0E91 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D5D6E78A1EDD153B004A0E91 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D5D6E78B1EDD153B004A0E91 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D5D6E7921EDD153B004A0E91 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D5D6E7931EDD153B004A0E91 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D5D6E7AC1EDD153C004A0E91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D5D6E7AD1EDD153C004A0E91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D5D6E7AF1EDD153C004A0E91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3QT27T2PJ3;
+				INFOPLIST_FILE = FeatherPad/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nickdonald.FeatherPad;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		D5D6E7B01EDD153C004A0E91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3QT27T2PJ3;
+				INFOPLIST_FILE = FeatherPad/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nickdonald.FeatherPad;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		D5D6E7B21EDD153C004A0E91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 3QT27T2PJ3;
+				INFOPLIST_FILE = FeatherPadTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nickdonald.FeatherPadTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FeatherPad.app/FeatherPad";
+			};
+			name = Debug;
+		};
+		D5D6E7B31EDD153C004A0E91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 3QT27T2PJ3;
+				INFOPLIST_FILE = FeatherPadTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nickdonald.FeatherPadTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FeatherPad.app/FeatherPad";
+			};
+			name = Release;
+		};
+		D5D6E7B51EDD153C004A0E91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 3QT27T2PJ3;
+				INFOPLIST_FILE = FeatherPadUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nickdonald.FeatherPadUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = FeatherPad;
+			};
+			name = Debug;
+		};
+		D5D6E7B61EDD153C004A0E91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 3QT27T2PJ3;
+				INFOPLIST_FILE = FeatherPadUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nickdonald.FeatherPadUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = FeatherPad;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D5D6E77E1EDD153B004A0E91 /* Build configuration list for PBXProject "FeatherPad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5D6E7AC1EDD153C004A0E91 /* Debug */,
+				D5D6E7AD1EDD153C004A0E91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5D6E7AE1EDD153C004A0E91 /* Build configuration list for PBXNativeTarget "FeatherPad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5D6E7AF1EDD153C004A0E91 /* Debug */,
+				D5D6E7B01EDD153C004A0E91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D5D6E7B11EDD153C004A0E91 /* Build configuration list for PBXNativeTarget "FeatherPadTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5D6E7B21EDD153C004A0E91 /* Debug */,
+				D5D6E7B31EDD153C004A0E91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D5D6E7B41EDD153C004A0E91 /* Build configuration list for PBXNativeTarget "FeatherPadUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5D6E7B51EDD153C004A0E91 /* Debug */,
+				D5D6E7B61EDD153C004A0E91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D5D6E78D1EDD153B004A0E91 /* FeatherPad.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D5D6E78E1EDD153B004A0E91 /* FeatherPad.xcdatamodel */,
+			);
+			currentVersion = D5D6E78E1EDD153B004A0E91 /* FeatherPad.xcdatamodel */;
+			path = FeatherPad.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D5D6E77B1EDD153B004A0E91 /* Project object */;
+}
