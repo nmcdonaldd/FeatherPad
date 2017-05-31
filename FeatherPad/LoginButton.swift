@@ -17,5 +17,4 @@ class LoginButton: UIButton {
         self.layer.borderColor = appPrimaryColor.cgColor
         self.clipsToBounds = false
     }
-
 }

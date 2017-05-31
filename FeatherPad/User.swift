@@ -8,6 +8,10 @@
 
 import UIKit
 
+enum UserError: Error {
+    case BadUsernameOrPassword(String)
+}
+
 class User: NSObject {
     
     private static var defaultUserDevicesIDsIdentifier = "default_device_ids"
@@ -31,6 +35,7 @@ class User: NSObject {
         }
         
         set {
+            _currentUser = newValue
             var deviceIDs = [String]()
             for device in (currentUser?.associatedDevices)! {
                 deviceIDs.append(device.id!)
@@ -44,5 +49,19 @@ class User: NSObject {
     init(withDevices featherPadDevices: [FeatherPadDevice]) {
         self.associatedDevices = featherPadDevices
     }
-
+    
+    class func loginUser(withUsername username: String?, password: String?, success: @escaping ()->(), failure: @escaping (Error?)->()) {
+        guard username != nil, password != nil else {
+            failure(UserError.BadUsernameOrPassword("Username or password is nil."))
+            return
+        }
+        let apiClient = FeatherPadClient()
+        apiClient.login(withUsername: username!, password: password!, success: { (loggedInUser: User) in
+            // Set the current user.
+            User.currentUser = loggedInUser
+            success()
+        }) { (error: Error?) in
+            failure(error)
+        }
+    }
 }
