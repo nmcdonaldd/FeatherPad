@@ -9,9 +9,9 @@
 import UIKit
 
 class LoginTextField: UITextField {
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+        self.backgroundColor = UIColor.black.withAlphaComponent(0.07)
     }
 }

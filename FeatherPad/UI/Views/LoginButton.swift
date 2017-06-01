@@ -12,9 +12,9 @@ class LoginButton: UIButton {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.layer.cornerRadius = 2.0
-        self.layer.borderWidth = 2.0
-        self.layer.borderColor = appPrimaryColor.cgColor
-        self.clipsToBounds = false
+//        self.layer.cornerRadius = 2.0
+//        self.layer.borderWidth = 2.0
+//        self.layer.borderColor = appPrimaryColor.cgColor
+//        self.clipsToBounds = false
     }
 }
