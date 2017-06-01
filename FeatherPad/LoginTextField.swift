@@ -14,5 +14,4 @@ class LoginTextField: UITextField {
         super.awakeFromNib()
         self.backgroundColor = UIColor.black.withAlphaComponent(0.1)
     }
-
 }
