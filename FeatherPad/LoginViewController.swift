@@ -10,11 +10,13 @@ import UIKit
 import SVProgressHUD
 
 class LoginViewController: UIViewController {
-
+    
+    static private var FeatherPadURL: URL = URL(string: "https://featherpad.herokuapp.com")!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var loginButton: LoginButton!
     @IBOutlet weak var signUpButton: LoginButton!
+    @IBOutlet weak var learnMoreButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,4 +46,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @IBAction func learnMoreButtonTapped(_ sender: Any) {
+        UIApplication.shared.open(LoginViewController.FeatherPadURL, options: [:], completionHandler: nil)
+    }
 }

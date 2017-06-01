@@ -91,10 +91,22 @@
                                 <color key="textColor" red="0.95294117649999999" green="0.37254901959999998" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eye-Px-qP7">
+                                <rect key="frame" x="137" y="620" width="100" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="Learn More &gt;">
+                                    <color key="titleColor" red="0.95294117649999999" green="0.37254901959999998" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="learnMoreButtonTapped:" destination="ino-u8-b9O" eventType="touchUpInside" id="lhP-uw-8L1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="learnMoreButton" destination="Eye-Px-qP7" id="oeB-sf-iLl"/>
                         <outlet property="loginButton" destination="qZD-Nz-PiD" id="dQX-3B-YDT"/>
                         <outlet property="passwordTextField" destination="Oys-K6-Hff" id="ByI-Dx-NZm"/>
                         <outlet property="signUpButton" destination="ghs-97-7xi" id="Lcq-Ok-tGP"/>

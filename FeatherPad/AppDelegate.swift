@@ -100,7 +100,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - Helpers.
     private func setUpProgressHUD() {
-        SVProgressHUD.setForegroundColor(appPrimaryColor) 
+        SVProgressHUD.setForegroundColor(appPrimaryColor)
+        SVProgressHUD.setBackgroundColor(UIColor.white)
+        SVProgressHUD.setBackgroundLayerColor(UIColor(white: 0, alpha: 0.4))
     }
 
 }
