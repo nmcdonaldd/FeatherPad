@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ForcePadAlerts: NSObject {
+class ForcePadAlerts {
     
 //    class func alertsFromDict() -> [ForcePadAlerts] {
 //        

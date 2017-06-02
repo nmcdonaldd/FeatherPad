@@ -12,7 +12,15 @@ enum UserError: Error {
     case BadUsernameOrPassword(String)
 }
 
-class User: NSObject {
+enum UserNotificationCenterOps: String {
+    case userDidLogout = "UserDidLogOut"
+    
+    var notification: Notification.Name {
+        return Notification.Name(rawValue: self.rawValue)
+    }
+}
+
+class User {
     
     private static var defaultUserDevicesIDsIdentifier = "default_device_ids"
     var associatedDevices: [FeatherPadDevice]?
@@ -36,14 +44,26 @@ class User: NSObject {
         
         set {
             _currentUser = newValue
-            var deviceIDs = [String]()
-            for device in (currentUser?.associatedDevices)! {
-                deviceIDs.append(device.id!)
-            }
             let defaults = UserDefaults.standard
-            defaults.set(deviceIDs, forKey: User.defaultUserDevicesIDsIdentifier)
+            if let currentUser = newValue {
+                var deviceIDs = [String]()
+                for device in (currentUser.associatedDevices)! {
+                    deviceIDs.append(device.id!)
+                }
+                defaults.set(deviceIDs, forKey: User.defaultUserDevicesIDsIdentifier)
+            }
+            else {
+                defaults.set(nil, forKey: User.defaultUserDevicesIDsIdentifier)
+            }
             defaults.synchronize()
         }
+    }
+    
+    /// This method will post the logout notification to NotificationCenter.
+    class func logoutCurrentUser(completion: (()->Swift.Void)?) {
+        User.currentUser = nil
+        NotificationCenter.default.post(name: UserNotificationCenterOps.userDidLogout.notification, object: nil)
+        completion?()
     }
     
     init(withDevices featherPadDevices: [FeatherPadDevice]) {

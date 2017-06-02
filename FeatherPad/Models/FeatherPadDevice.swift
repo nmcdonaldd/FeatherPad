@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeatherPadDevice: NSObject {
+class FeatherPadDevice {
     
     var id: String?
     

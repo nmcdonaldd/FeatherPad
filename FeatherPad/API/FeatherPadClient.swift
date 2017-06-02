@@ -13,7 +13,6 @@ private enum HTTPType: String {
     case post = "POST"
     case put = "PUT"
     case delete = "DELETE"
-    
 }
 
 enum FeatherPadClientError: Error {
@@ -22,9 +21,9 @@ enum FeatherPadClientError: Error {
     case DataSerializationError
 }
 
-class FeatherPadClient: NSObject {
+class FeatherPadClient {
     
-    private static let baseAPIURL = "https://featherpad.herokuapp.com/api/"
+    private static let baseAPIURL = URL(string: "https://featherpad.herokuapp.com/api/")!
     private static let loginEndpoint = "login_mobile/create"  // Append Username and password: <string:username>/<string:password>
     
     // MARK: - Methods.
@@ -63,11 +62,11 @@ class FeatherPadClient: NSObject {
     }
     
     fileprivate func api(endpoint: String, type: HTTPType, success: @escaping (Data?)->(), failure: @escaping (Error?)->()) {
-        guard let requestURL = URL(string: endpoint, relativeTo: URL(string: FeatherPadClient.baseAPIURL)) else {
+        guard let requestURL = URL(string: endpoint, relativeTo: FeatherPadClient.baseAPIURL) else {
             failure(FeatherPadClientError.BadURL)   // Bad url, couldn't make URL object from the string.
             return
         }
-        print("RequestURL: \(requestURL.absoluteString)")
+        
         var request = URLRequest(url: requestURL)
         request.httpMethod = type.rawValue
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.current)

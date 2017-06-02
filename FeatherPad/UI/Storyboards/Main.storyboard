@@ -22,16 +22,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="HcY-mF-0Lw"/>
+                    <navigationItem key="navigationItem" id="HcY-mF-0Lw">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="4xt-CF-7e6">
+                            <connections>
+                                <action selector="logoutBarButtonItemTapped:" destination="BYZ-38-t0r" id="dXd-RQ-uOf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1041" y="-559"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Base Navigation Controller-->
         <scene sceneID="sUp-as-mdU">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ED9-as-twh" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ED9-as-twh" customClass="BaseNavigationController" customModule="FeatherPad" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ues-6E-W9E">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

@@ -11,7 +11,7 @@ import SVProgressHUD
 
 class LoginViewController: UIViewController {
     
-    static private var FeatherPadURL: URL = URL(string: "https://featherpad.herokuapp.com")!
+    static private var FeatherPadURL = URL(string: "https://featherpad.herokuapp.com")!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var loginButton: LoginButton!

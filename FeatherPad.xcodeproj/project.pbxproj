@@ -10,6 +10,7 @@
 		245C69EAA2C2F55848FD217D /* Pods_FeatherPad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C400E1BB33CD26D0864616 /* Pods_FeatherPad.framework */; };
 		640025597103AF9FCE3EE913 /* Pods_FeatherPadTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DBC094D6C08BAF2353D4E5 /* Pods_FeatherPadTests.framework */; };
 		D508790E1EDF887F00F11156 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D508790D1EDF887F00F11156 /* LoginTextField.swift */; };
+		D52065191EE0F2DB00CB155C /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52065181EE0F2DB00CB155C /* BaseNavigationController.swift */; };
 		D5375B1D1EDD34FD00FB45A5 /* FeatherPadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5375B1C1EDD34FD00FB45A5 /* FeatherPadClient.swift */; };
 		D5584FAE1EE090F8002BF512 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5584FAB1EE090F8002BF512 /* LaunchScreen.storyboard */; };
 		D5584FAF1EE090F8002BF512 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5584FAC1EE090F8002BF512 /* Login.storyboard */; };
@@ -56,6 +57,7 @@
 		AD05BECC91D3CDC797AF097C /* Pods-FeatherPadTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeatherPadTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FeatherPadTests/Pods-FeatherPadTests.release.xcconfig"; sourceTree = "<group>"; };
 		B1A20AE1F4FE1C53B0F3AF39 /* Pods_FeatherPadUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeatherPadUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D508790D1EDF887F00F11156 /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginTextField.swift; path = UI/Views/LoginTextField.swift; sourceTree = "<group>"; };
+		D52065181EE0F2DB00CB155C /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseNavigationController.swift; path = "UI/View Controllers/BaseNavigationController.swift"; sourceTree = "<group>"; };
 		D5375B1C1EDD34FD00FB45A5 /* FeatherPadClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeatherPadClient.swift; path = API/FeatherPadClient.swift; sourceTree = "<group>"; };
 		D5584FAB1EE090F8002BF512 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = UI/Storyboards/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D5584FAC1EE090F8002BF512 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = UI/Storyboards/Login.storyboard; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			children = (
 				D5D6E7881EDD153B004A0E91 /* ViewController.swift */,
 				D5D6E7C31EDD1CAC004A0E91 /* LoginViewController.swift */,
+				D52065181EE0F2DB00CB155C /* BaseNavigationController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				D5D6E7C21EDD16CE004A0E91 /* ForcePadAlerts.swift in Sources */,
 				D508790E1EDF887F00F11156 /* LoginTextField.swift in Sources */,
 				D5375B1D1EDD34FD00FB45A5 /* FeatherPadClient.swift in Sources */,
+				D52065191EE0F2DB00CB155C /* BaseNavigationController.swift in Sources */,
 				D5D6E7871EDD153B004A0E91 /* AppDelegate.swift in Sources */,
 				D5D6E7C01EDD1641004A0E91 /* FeatherPadDevice.swift in Sources */,
 				D5D6E78F1EDD153B004A0E91 /* FeatherPad.xcdatamodeld in Sources */,
