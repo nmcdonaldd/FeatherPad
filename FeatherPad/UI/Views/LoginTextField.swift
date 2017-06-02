@@ -13,5 +13,6 @@ class LoginTextField: UITextField {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = UIColor.black.withAlphaComponent(0.07)
+        self.clearButtonMode = .always
     }
 }
