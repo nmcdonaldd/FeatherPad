@@ -9,25 +9,30 @@
 /* Begin PBXBuildFile section */
 		245C69EAA2C2F55848FD217D /* Pods_FeatherPad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C400E1BB33CD26D0864616 /* Pods_FeatherPad.framework */; };
 		640025597103AF9FCE3EE913 /* Pods_FeatherPadTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DBC094D6C08BAF2353D4E5 /* Pods_FeatherPadTests.framework */; };
+		D50831341EE38D58009BA879 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50831331EE38D58009BA879 /* HistoryTableViewCell.swift */; };
+		D50831371EE38DFE009BA879 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D50831361EE38DFE009BA879 /* Home.storyboard */; };
+		D50831391EE38E09009BA879 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D50831381EE38E09009BA879 /* Main.storyboard */; };
+		D508313B1EE38F2F009BA879 /* FeatherPadTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D508313A1EE38F2F009BA879 /* FeatherPadTabBarController.swift */; };
 		D508790E1EDF887F00F11156 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D508790D1EDF887F00F11156 /* LoginTextField.swift */; };
 		D52065191EE0F2DB00CB155C /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52065181EE0F2DB00CB155C /* BaseNavigationController.swift */; };
 		D5375B1D1EDD34FD00FB45A5 /* FeatherPadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5375B1C1EDD34FD00FB45A5 /* FeatherPadClient.swift */; };
 		D5584FAE1EE090F8002BF512 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5584FAB1EE090F8002BF512 /* LaunchScreen.storyboard */; };
 		D5584FAF1EE090F8002BF512 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5584FAC1EE090F8002BF512 /* Login.storyboard */; };
-		D5584FB01EE090F8002BF512 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5584FAD1EE090F8002BF512 /* Main.storyboard */; };
+		D5584FB01EE090F8002BF512 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5584FAD1EE090F8002BF512 /* History.storyboard */; };
 		D5708971E3C45C7D2064487A /* Pods_FeatherPadUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A20AE1F4FE1C53B0F3AF39 /* Pods_FeatherPadUITests.framework */; };
 		D5D6E7871EDD153B004A0E91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E7861EDD153B004A0E91 /* AppDelegate.swift */; };
-		D5D6E7891EDD153B004A0E91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E7881EDD153B004A0E91 /* ViewController.swift */; };
+		D5D6E7891EDD153B004A0E91 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E7881EDD153B004A0E91 /* HistoryViewController.swift */; };
 		D5D6E78F1EDD153B004A0E91 /* FeatherPad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E78D1EDD153B004A0E91 /* FeatherPad.xcdatamodeld */; };
 		D5D6E7911EDD153B004A0E91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5D6E7901EDD153B004A0E91 /* Assets.xcassets */; };
 		D5D6E79F1EDD153B004A0E91 /* FeatherPadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E79E1EDD153B004A0E91 /* FeatherPadTests.swift */; };
 		D5D6E7AA1EDD153C004A0E91 /* FeatherPadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E7A91EDD153C004A0E91 /* FeatherPadUITests.swift */; };
 		D5D6E7BE1EDD162B004A0E91 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E7BD1EDD162B004A0E91 /* User.swift */; };
 		D5D6E7C01EDD1641004A0E91 /* FeatherPadDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E7BF1EDD1641004A0E91 /* FeatherPadDevice.swift */; };
-		D5D6E7C21EDD16CE004A0E91 /* ForcePadAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E7C11EDD16CE004A0E91 /* ForcePadAlerts.swift */; };
+		D5D6E7C21EDD16CE004A0E91 /* ForcePadAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E7C11EDD16CE004A0E91 /* ForcePadAlert.swift */; };
 		D5D6E7C41EDD1CAC004A0E91 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E7C31EDD1CAC004A0E91 /* LoginViewController.swift */; };
 		D5D6E7C81EDD1F50004A0E91 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E7C71EDD1F50004A0E91 /* LoginButton.swift */; };
 		D5D6E7CB1EDD1FBC004A0E91 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E7CA1EDD1FBC004A0E91 /* Common.swift */; };
+		D5ED5BA21EE36EB900621026 /* TempHumReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED5BA11EE36EB900621026 /* TempHumReading.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,15 +61,19 @@
 		95C400E1BB33CD26D0864616 /* Pods_FeatherPad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeatherPad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD05BECC91D3CDC797AF097C /* Pods-FeatherPadTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeatherPadTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FeatherPadTests/Pods-FeatherPadTests.release.xcconfig"; sourceTree = "<group>"; };
 		B1A20AE1F4FE1C53B0F3AF39 /* Pods_FeatherPadUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeatherPadUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D50831331EE38D58009BA879 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryTableViewCell.swift; path = UI/Views/HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		D50831361EE38DFE009BA879 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Home.storyboard; path = UI/Storyboards/Home.storyboard; sourceTree = "<group>"; };
+		D50831381EE38E09009BA879 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D508313A1EE38F2F009BA879 /* FeatherPadTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeatherPadTabBarController.swift; path = "UI/View Controllers/FeatherPadTabBarController.swift"; sourceTree = "<group>"; };
 		D508790D1EDF887F00F11156 /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginTextField.swift; path = UI/Views/LoginTextField.swift; sourceTree = "<group>"; };
 		D52065181EE0F2DB00CB155C /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseNavigationController.swift; path = "UI/View Controllers/BaseNavigationController.swift"; sourceTree = "<group>"; };
 		D5375B1C1EDD34FD00FB45A5 /* FeatherPadClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeatherPadClient.swift; path = API/FeatherPadClient.swift; sourceTree = "<group>"; };
 		D5584FAB1EE090F8002BF512 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = UI/Storyboards/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D5584FAC1EE090F8002BF512 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = UI/Storyboards/Login.storyboard; sourceTree = "<group>"; };
-		D5584FAD1EE090F8002BF512 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = UI/Storyboards/Main.storyboard; sourceTree = "<group>"; };
+		D5584FAD1EE090F8002BF512 /* History.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = History.storyboard; path = UI/Storyboards/History.storyboard; sourceTree = "<group>"; };
 		D5D6E7831EDD153B004A0E91 /* FeatherPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeatherPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5D6E7861EDD153B004A0E91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D5D6E7881EDD153B004A0E91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "UI/View Controllers/ViewController.swift"; sourceTree = "<group>"; };
+		D5D6E7881EDD153B004A0E91 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HistoryViewController.swift; path = "UI/View Controllers/HistoryViewController.swift"; sourceTree = "<group>"; };
 		D5D6E78E1EDD153B004A0E91 /* FeatherPad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FeatherPad.xcdatamodel; sourceTree = "<group>"; };
 		D5D6E7901EDD153B004A0E91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5D6E7951EDD153B004A0E91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,10 +85,11 @@
 		D5D6E7AB1EDD153C004A0E91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5D6E7BD1EDD162B004A0E91 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		D5D6E7BF1EDD1641004A0E91 /* FeatherPadDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeatherPadDevice.swift; path = Models/FeatherPadDevice.swift; sourceTree = "<group>"; };
-		D5D6E7C11EDD16CE004A0E91 /* ForcePadAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForcePadAlerts.swift; path = Models/ForcePadAlerts.swift; sourceTree = "<group>"; };
+		D5D6E7C11EDD16CE004A0E91 /* ForcePadAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForcePadAlert.swift; path = Models/ForcePadAlert.swift; sourceTree = "<group>"; };
 		D5D6E7C31EDD1CAC004A0E91 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "UI/View Controllers/LoginViewController.swift"; sourceTree = "<group>"; };
 		D5D6E7C71EDD1F50004A0E91 /* LoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginButton.swift; path = UI/Views/LoginButton.swift; sourceTree = "<group>"; };
 		D5D6E7CA1EDD1FBC004A0E91 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Common.swift; path = "Supporting Files/Common.swift"; sourceTree = "<group>"; };
+		D5ED5BA11EE36EB900621026 /* TempHumReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TempHumReading.swift; path = Models/TempHumReading.swift; sourceTree = "<group>"; };
 		DE3E84C9790322A215A570EB /* Pods-FeatherPadTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeatherPadTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FeatherPadTests/Pods-FeatherPadTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -202,7 +212,8 @@
 			children = (
 				D5D6E7BD1EDD162B004A0E91 /* User.swift */,
 				D5D6E7BF1EDD1641004A0E91 /* FeatherPadDevice.swift */,
-				D5D6E7C11EDD16CE004A0E91 /* ForcePadAlerts.swift */,
+				D5D6E7C11EDD16CE004A0E91 /* ForcePadAlert.swift */,
+				D5ED5BA11EE36EB900621026 /* TempHumReading.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -220,9 +231,10 @@
 		D5D6E7BA1EDD156A004A0E91 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D5D6E7881EDD153B004A0E91 /* ViewController.swift */,
+				D5D6E7881EDD153B004A0E91 /* HistoryViewController.swift */,
 				D5D6E7C31EDD1CAC004A0E91 /* LoginViewController.swift */,
 				D52065181EE0F2DB00CB155C /* BaseNavigationController.swift */,
+				D508313A1EE38F2F009BA879 /* FeatherPadTabBarController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -232,6 +244,7 @@
 			children = (
 				D5D6E7C71EDD1F50004A0E91 /* LoginButton.swift */,
 				D508790D1EDF887F00F11156 /* LoginTextField.swift */,
+				D50831331EE38D58009BA879 /* HistoryTableViewCell.swift */,
 			);
 			name = VIews;
 			sourceTree = "<group>";
@@ -241,7 +254,9 @@
 			children = (
 				D5584FAB1EE090F8002BF512 /* LaunchScreen.storyboard */,
 				D5584FAC1EE090F8002BF512 /* Login.storyboard */,
-				D5584FAD1EE090F8002BF512 /* Main.storyboard */,
+				D5584FAD1EE090F8002BF512 /* History.storyboard */,
+				D50831361EE38DFE009BA879 /* Home.storyboard */,
+				D50831381EE38E09009BA879 /* Main.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -374,9 +389,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5D6E7911EDD153B004A0E91 /* Assets.xcassets in Resources */,
+				D50831371EE38DFE009BA879 /* Home.storyboard in Resources */,
 				D5584FAE1EE090F8002BF512 /* LaunchScreen.storyboard in Resources */,
+				D50831391EE38E09009BA879 /* Main.storyboard in Resources */,
 				D5584FAF1EE090F8002BF512 /* Login.storyboard in Resources */,
-				D5584FB01EE090F8002BF512 /* Main.storyboard in Resources */,
+				D5584FB01EE090F8002BF512 /* History.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,16 +558,19 @@
 			files = (
 				D5D6E7C41EDD1CAC004A0E91 /* LoginViewController.swift in Sources */,
 				D5D6E7C81EDD1F50004A0E91 /* LoginButton.swift in Sources */,
+				D50831341EE38D58009BA879 /* HistoryTableViewCell.swift in Sources */,
 				D5D6E7BE1EDD162B004A0E91 /* User.swift in Sources */,
-				D5D6E7891EDD153B004A0E91 /* ViewController.swift in Sources */,
+				D5D6E7891EDD153B004A0E91 /* HistoryViewController.swift in Sources */,
 				D5D6E7CB1EDD1FBC004A0E91 /* Common.swift in Sources */,
-				D5D6E7C21EDD16CE004A0E91 /* ForcePadAlerts.swift in Sources */,
+				D5D6E7C21EDD16CE004A0E91 /* ForcePadAlert.swift in Sources */,
 				D508790E1EDF887F00F11156 /* LoginTextField.swift in Sources */,
 				D5375B1D1EDD34FD00FB45A5 /* FeatherPadClient.swift in Sources */,
 				D52065191EE0F2DB00CB155C /* BaseNavigationController.swift in Sources */,
 				D5D6E7871EDD153B004A0E91 /* AppDelegate.swift in Sources */,
 				D5D6E7C01EDD1641004A0E91 /* FeatherPadDevice.swift in Sources */,
 				D5D6E78F1EDD153B004A0E91 /* FeatherPad.xcdatamodeld in Sources */,
+				D5ED5BA21EE36EB900621026 /* TempHumReading.swift in Sources */,
+				D508313B1EE38F2F009BA879 /* FeatherPadTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

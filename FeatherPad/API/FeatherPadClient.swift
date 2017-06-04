@@ -40,30 +40,23 @@ enum FeatherPadClientError: Error {
 class FeatherPadClient {
     
     private static let baseAPIURL = URL(string: "https://featherpad.herokuapp.com/api/")!
-    private static let loginEndpoint = "login_mobile/create"  // Append Username and password: <string:username>/<string:password>
+    private static let loginEndpoint = "login_mobile/create"    // Append Username and password: <string:username>/<string:password>
+    private static let readTempHumEndpoint = "temp_hum"         // Append the device id: "1234"
+    private static let readForcePadAlertsEndpoint = ""
     
-    // MARK: - Methods.
-    
+    /// Login method that makes an HTTP Request to log the user in.
     func login(withUsername username: String, password: String, success: @escaping (User)->(), failure: @escaping (Error?)->()) {
-        self.api(endpoint: FeatherPadClient.loginEndpoint + "/\(username)/\(password)", type: .post, success: { (responseData: Data?) in
+        self.api(endpoint: FeatherPadClient.loginEndpoint + "/\(username)/\(password)", type: .post, success: { (response: Data?) in
             // This block should handle creating the device ids and adding them to a new user.
-            guard responseData != nil else {
+            guard response != nil else {
                 // Let's hope the response is not nil.
-                failure(FeatherPadClientError.InvalidResponse("Server returned no data."))
+                failure(FeatherPadClientError.InvalidResponse("Server returned nil data."))
                 return
             }
             
-            // Cast the return value as an array of [String: Any?] array.
-            if let dictionaries = try? JSONSerialization.jsonObject(with: responseData!, options: JSONSerialization.ReadingOptions.allowFragments) as? [[String: Any?]] {
-                var devices = [FeatherPadDevice]()
-                for dictionary in dictionaries! {
-                    guard let deviceID = dictionary["device_id"] as? String else {  // Check to make sure there is a "device_id" field.
-                        // For now, just continue on to next device if there is no device_id for some reason.
-                        continue
-                    }
-                    let device = FeatherPadDevice(withDeviceID: deviceID)
-                    devices.append(device)
-                }
+            // Cast the return value as an array of [String: Any?].
+            if let dictionaries = try? JSONSerialization.jsonObject(with: response!, options: JSONSerialization.ReadingOptions.allowFragments) as? [[String: Any?]] {
+                let devices = FeatherPadDevice.DevicesFromDict(dictionaries!)
                 let loggedInUser = User(withDevices: devices)
                 // Return the user that we just logged in.
                 success(loggedInUser)
@@ -76,6 +69,38 @@ class FeatherPadClient {
             failure(error)
         }
     }
+    
+    
+    /// Method to get the data of temperature_humidity readings from the API.
+    func getTempHumReadingsForDeviceWithID(_ id: String, success: @escaping ([TempHumReading]?)->(), failure: @escaping (Error?)->()) {
+        self.api(endpoint: FeatherPadClient.readTempHumEndpoint + "/\(id)", type: .get, success: { (response: Data?) in
+            // This block should handle creating the temperature and humidity reading objects and passing them off ot the success.
+            guard response != nil else {
+                failure(FeatherPadClientError.InvalidResponse("Server returned nil data"))
+                return
+            }
+            
+            // Cast the return value as an arry of [String: Any?].
+            if let dictionaries = try? JSONSerialization.jsonObject(with: response!, options: JSONSerialization.ReadingOptions.allowFragments) as? [[String: Any?]] {
+                let readings = TempHumReading.TempHumReadingsFromDict(inputDict: dictionaries!)
+                // Run the success block with the new readings we just created.
+                success(readings)
+            } else {
+                failure(FeatherPadClientError.DataSerializationError)
+            }
+        }) { (error: Error?) in
+            // Failure block. Just pass along the error to the failure block given.
+            failure(error)
+        }
+    }
+    
+    // TODO: - Add an endpoint for reading the ForcePad alerts generated from the Pi.
+    /// Method to get the data of ForcePadAlert readigns from the API.
+    func getForcePadAlertsForDeviceWithID(_ id: String, success: @escaping ([ForcePadAlert]?)->(), failure: @escaping (Error?)->()) {
+        // IMPLEMENT ME.
+        fatalError()
+    }
+    
     
     fileprivate func api(endpoint: String, type: HTTPType, success: @escaping (Data?)->(), failure: @escaping (Error?)->()) {
         guard let requestURL = URL(string: endpoint, relativeTo: FeatherPadClient.baseAPIURL) else {

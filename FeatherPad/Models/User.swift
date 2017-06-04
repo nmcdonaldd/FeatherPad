@@ -50,7 +50,7 @@ class User {
                     // This means there are no defaults for the user. --> No logged-in user.
                     return nil
                 }
-                let devices = FeatherPadDevice.devicesFromIDs(deviceIDs)
+                let devices = FeatherPadDevice.DevicesFromIDs(deviceIDs)
                 _currentUser = User(withDevices: devices)
                 return _currentUser
             } else {
@@ -91,8 +91,8 @@ class User {
             failure(UserError.BadUsernameOrPassword("Username or password is nil."))
             return
         }
-        let apiClient = FeatherPadClient()
-        apiClient.login(withUsername: username!, password: password!, success: { (loggedInUser: User) in
+        let fpClient = FeatherPadClient()
+        fpClient.login(withUsername: username!, password: password!, success: { (loggedInUser: User) in
             // Set the current user.
             User.currentUser = loggedInUser
             success()

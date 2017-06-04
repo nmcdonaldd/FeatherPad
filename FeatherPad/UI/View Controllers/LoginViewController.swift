@@ -57,8 +57,10 @@ class LoginViewController: UIViewController {
                 self.present(mainVC!, animated: true, completion: nil)
             }
         }) { (error: Error?) in
-            SVProgressHUD.dismiss()
-            SVProgressHUD.showError(withStatus: error?.localizedDescription)
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+                SVProgressHUD.showError(withStatus: error?.localizedDescription)
+            }
         }
     }
     

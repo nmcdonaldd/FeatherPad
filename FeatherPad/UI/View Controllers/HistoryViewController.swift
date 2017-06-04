@@ -1,5 +1,5 @@
 //
-//  ForcePadAlerts.swift
+//  HistoryViewController.swift
 //
 //  Copyright © 2017 Team Exponent (https://featherpad.herokuapp.com)
 //
@@ -24,10 +24,21 @@
 
 import UIKit
 
-class ForcePadAlerts {
+class HistoryViewController: UIViewController {
     
-//    class func alertsFromDict() -> [ForcePadAlerts] {
-//        
-//    }
+    @IBOutlet weak var historyTableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        self.title = "History"
+    }
 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    @IBAction func logoutBarButtonItemTapped(_ sender: UIBarButtonItem) {
+        User.logoutCurrentUser(completion: nil)
+    }
 }

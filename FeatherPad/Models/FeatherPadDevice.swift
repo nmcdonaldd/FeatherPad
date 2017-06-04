@@ -26,7 +26,14 @@ import UIKit
 
 class FeatherPadDevice {
     
+    /// ID of the device.
     var id: String?
+    
+    /// List of Temperature/Humidity reading objects for this device.
+    var tempHumReadings: [TempHumReading]?
+    
+    /// List of ForcePadAlerts objects for this device.
+    var forcePadAlerts: [ForcePadAlert]?
     
     init(withDeviceID deviceID: String) {
         self.id = deviceID
@@ -36,11 +43,52 @@ class FeatherPadDevice {
         self.init(withDeviceID: inputDict["device_id"] as! String)
     }
     
-    class func devicesFromIDs(_ ids: [String]) -> [FeatherPadDevice] {
+    /// Method to update this devices temperature humidity readings as well as ForcePadAlerts. NOTE: the success or failure block might not be called on the Main queue.
+    func updateDeviceReadings(success: @escaping ([TempHumReading]?, [ForcePadAlert]?)->(), failure: @escaping (Error?)->()) {
+        let fpClient = FeatherPadClient()
+        let group = DispatchGroup()
+        let queue = DispatchQueue(label: "com.exponent.fpClientQueue", attributes: .concurrent)
+        var returnedTempHumReadings: [TempHumReading]?
+        //var returnedForcePadAlerts: [ForcePadAlert]?
+        queue.async {
+            // Enter the group for getting temp/hum alerts.
+            group.enter()
+            fpClient.getTempHumReadingsForDeviceWithID(self.id!, success: { (tempHumReadings: [TempHumReading]?) in
+                // Success.
+                self.tempHumReadings = tempHumReadings
+                returnedTempHumReadings = tempHumReadings
+            }, failure: { (error: Error?) in
+                // Failure.
+                failure(error)
+            })
+            group.leave()
+        }
+//        queue.async {
+//            // Enter the group for getting ForcePad alerts.
+//            group.enter()
+//            
+//            
+//            group.leave()
+//        }
+        group.notify(queue: queue) {
+            // TODO: - Remove the nil once the temp hum readings have updated.
+            success(returnedTempHumReadings, nil)
+        }
+    }
+    
+    class func DevicesFromIDs(_ ids: [String]) -> [FeatherPadDevice] {
         var toReturn = [FeatherPadDevice]()
         for id in ids {
             toReturn.append(FeatherPadDevice(withDeviceID: id))
         }
         return toReturn
+    }
+    
+    class func DevicesFromDict(_ devices: [[String: Any?]]) -> [FeatherPadDevice] {
+        var output = [FeatherPadDevice]()
+        for device in devices {
+            output.append(FeatherPadDevice(inputDict: device))
+        }
+        return output
     }
 }

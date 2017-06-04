@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ForcePadAlert.swift
 //
 //  Copyright © 2017 Team Exponent (https://featherpad.herokuapp.com)
 //
@@ -24,19 +24,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ForcePadAlert {
+    
+//    class func alertsFromDict() -> [ForcePadAlerts] {
+//        
+//    }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.title = "FeatherPad"
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    @IBAction func logoutBarButtonItemTapped(_ sender: UIBarButtonItem) {
-        User.logoutCurrentUser(completion: nil)
-    }
 }

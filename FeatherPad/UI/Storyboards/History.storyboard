@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--History View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FeatherPad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HistoryViewController" customModule="FeatherPad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -20,7 +20,29 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wEF-4h-DGh">
+                                <rect key="frame" x="-0.5" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="73" id="gHZ-g6-lX4">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="73"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gHZ-g6-lX4" id="Vd7-jo-Tc4">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="72.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wEF-4h-DGh" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="RJn-65-VXo"/>
+                            <constraint firstItem="wEF-4h-DGh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zf6-vF-PwK"/>
+                            <constraint firstItem="wEF-4h-DGh" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="i57-sA-vd9"/>
+                            <constraint firstItem="wEF-4h-DGh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="l7Q-xo-Z4C"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HcY-mF-0Lw">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="4xt-CF-7e6">
@@ -29,16 +51,21 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="historyTableView" destination="wEF-4h-DGh" id="IIT-7b-kQg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1041" y="-559"/>
+            <point key="canvasLocation" x="1040.8" y="-559.07046476761627"/>
         </scene>
-        <!--Base Navigation Controller-->
+        <!--History-->
         <scene sceneID="sUp-as-mdU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ED9-as-twh" customClass="BaseNavigationController" customModule="FeatherPad" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="History" image="Clock" id="gjC-Qd-rAs"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ues-6E-W9E">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -53,4 +80,7 @@
             <point key="canvasLocation" x="24.800000000000001" y="-559.07046476761627"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Clock" width="25" height="25"/>
+    </resources>
 </document>
