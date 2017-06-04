@@ -23,6 +23,7 @@
 //
 
 import Foundation
+import SwiftDate
 
 class TempHumReading {
     
@@ -30,7 +31,7 @@ class TempHumReading {
     var temperatureValue: Int!
     
     /// This is the humidity value of the reading as a percentage.
-    var humidity: Int!
+    var humidityValue: Int!
     
     /// This is the ID of the temperature/humidity reading.
     var id: Int!
@@ -38,16 +39,25 @@ class TempHumReading {
     /// Timestamp of the temperature/humidity reading.
     var timestamp: Date!
     
+    /// Formatted (relative) date.
+    // This is a computed property since asking for the reading object's realtive time can happen at a later time.
+    var relativeTimeStamp: String! {
+        let din: DateInRegion? = DateInRegion(absoluteDate: self.timestamp)
+        let (colloquial, _): (String, String?) = try! din!.colloquialSinceNow()
+        
+        return colloquial
+    }
+    
     init(withDictionary inputDict: [String: Any?]) {
         self.temperatureValue = inputDict["temperature"] as! Int
-        self.humidity = inputDict["humidity"] as! Int
+        self.humidityValue = inputDict["humidity"] as! Int
         self.id = inputDict["id"] as! Int
         
         // Format the date input to a Date object using DateFormatter.
         // Example format of the timestamp is "Sun, 07 May 2017 23:14:50 GMT".
         let df = DateFormatter()
         df.dateFormat = "EEE, dd MMMM yyyy HH:mm:ss ZZZZ"
-        self.timestamp = df.date(from: inputDict["timestmap"] as! String)
+        self.timestamp = df.date(from: (inputDict["timestamp"] as? String)!)
     }
     
     class func TempHumReadingsFromDict(inputDict: [[String: Any?]]) -> [TempHumReading] {

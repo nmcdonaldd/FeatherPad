@@ -58,8 +58,10 @@ class FeatherPadClient {
             if let dictionaries = try? JSONSerialization.jsonObject(with: response!, options: JSONSerialization.ReadingOptions.allowFragments) as? [[String: Any?]] {
                 let devices = FeatherPadDevice.DevicesFromDict(dictionaries!)
                 let loggedInUser = User(withDevices: devices)
+                
                 // Return the user that we just logged in.
                 success(loggedInUser)
+                return
             } else {
                 // What to do if we cannot serialize the data? Call failure on error!
                 failure(FeatherPadClientError.DataSerializationError)
@@ -85,12 +87,15 @@ class FeatherPadClient {
                 let readings = TempHumReading.TempHumReadingsFromDict(inputDict: dictionaries!)
                 // Run the success block with the new readings we just created.
                 success(readings)
+                return
             } else {
                 failure(FeatherPadClientError.DataSerializationError)
+                return
             }
         }) { (error: Error?) in
             // Failure block. Just pass along the error to the failure block given.
             failure(error)
+            return
         }
     }
     

@@ -23,22 +23,86 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class HistoryViewController: UIViewController {
     
     @IBOutlet weak var historyTableView: UITableView!
+    fileprivate var devices: [FeatherPadDevice]?
+    
+    /// Mapping of device readings to a list of their temp/hum readings.
+    lazy fileprivate var deviceReadings: [FeatherPadDevice: [TempHumReading]] = {
+        return [FeatherPadDevice: [TempHumReading]]()
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "History"
+        self.devices = User.currentUser!.associatedDevices
+        self.historyTableView.dataSource = self
+        self.loadReadings()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    private func loadReadings() {
+        DispatchQueue.main.async {
+            SVProgressHUD.show()
+        }
+        /// Need to get the reading for every device.
+        let group = DispatchGroup()     // Use a dispatch group so that we can update once all requests for all devices complete.
+        for device in self.devices! {
+            print("Entering group!")
+            var readingsForDevice: [TempHumReading]?
+            group.enter()
+            device.updateDeviceReadings(success: { (tempHum: [TempHumReading]?, alerts: [ForcePadAlert]?) in
+                if let _ = tempHum {
+                    readingsForDevice = tempHum
+                    self.deviceReadings.updateValue(readingsForDevice!, forKey: device)
+                }
+                print("Leaving group!")
+                group.leave()
+            }, failure: { (error: Error?) in
+                // Do something with error.
+                print("Could not update readings for device with id: \(device.id!)")
+                group.leave()
+            })
+        }
+        group.notify(queue: .main) {
+            // This executes when all devices have finished loading their readings.
+            print("jlkajsldkf")
+            self.historyTableView.reloadData()
+            SVProgressHUD.dismiss()
+        }
+    }
+    
     @IBAction func logoutBarButtonItemTapped(_ sender: UIBarButtonItem) {
         User.logoutCurrentUser(completion: nil)
+    }
+}
+
+extension HistoryViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.historyTableView.dequeueReusableCell(withIdentifier: "HistoryTableViewCell") as! HistoryTableViewCell
+        let device = self.devices?[0]
+        let readings = self.deviceReadings[device!]
+        cell.readingInfo = readings?[indexPath.row]
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let device = self.devices?[0]
+        let readings = self.deviceReadings[device!]
+        print("Count: \(readings?.count ?? 0)")
+        return readings?.count ?? 0
     }
 }

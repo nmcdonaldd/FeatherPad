@@ -24,7 +24,7 @@
 
 import UIKit
 
-class FeatherPadDevice {
+class FeatherPadDevice: Hashable {
     
     /// ID of the device.
     var id: String?
@@ -34,6 +34,11 @@ class FeatherPadDevice {
     
     /// List of ForcePadAlerts objects for this device.
     var forcePadAlerts: [ForcePadAlert]?
+    
+    /// Hashable conformance.
+    var hashValue: Int {
+        return Int(self.id!)!
+    }
     
     init(withDeviceID deviceID: String) {
         self.id = deviceID
@@ -47,22 +52,23 @@ class FeatherPadDevice {
     func updateDeviceReadings(success: @escaping ([TempHumReading]?, [ForcePadAlert]?)->(), failure: @escaping (Error?)->()) {
         let fpClient = FeatherPadClient()
         let group = DispatchGroup()
-        let queue = DispatchQueue(label: "com.exponent.fpClientQueue", attributes: .concurrent)
+//        let queue = DispatchQueue(label: "com.exponent.fpClientQueue", attributes: .concurrent)
         var returnedTempHumReadings: [TempHumReading]?
         //var returnedForcePadAlerts: [ForcePadAlert]?
-        queue.async {
-            // Enter the group for getting temp/hum alerts.
-            group.enter()
-            fpClient.getTempHumReadingsForDeviceWithID(self.id!, success: { (tempHumReadings: [TempHumReading]?) in
-                // Success.
-                self.tempHumReadings = tempHumReadings
-                returnedTempHumReadings = tempHumReadings
-            }, failure: { (error: Error?) in
-                // Failure.
-                failure(error)
-            })
+        //queue.async {
+        // Enter the group for getting temp/hum alerts.
+        group.enter()
+        fpClient.getTempHumReadingsForDeviceWithID(self.id!, success: { (tempHumReadings: [TempHumReading]?) in
+            // Success.
+            self.tempHumReadings = tempHumReadings
+            returnedTempHumReadings = tempHumReadings
             group.leave()
-        }
+        }, failure: { (error: Error?) in
+            // Failure.
+            failure(error)
+            group.leave()
+        })
+        //}
 //        queue.async {
 //            // Enter the group for getting ForcePad alerts.
 //            group.enter()
@@ -70,7 +76,7 @@ class FeatherPadDevice {
 //            
 //            group.leave()
 //        }
-        group.notify(queue: queue) {
+        group.notify(queue: .main) {
             // TODO: - Remove the nil once the force pad alerts have updated.
             success(returnedTempHumReadings, nil)
         }
@@ -90,5 +96,10 @@ class FeatherPadDevice {
             output.append(FeatherPadDevice(inputDict: device))
         }
         return output
+    }
+    
+    /// Hashable conforms to equatable, so need to implement equatable conformance.
+    static func ==(lhs: FeatherPadDevice, rhs: FeatherPadDevice) -> Bool {
+        return lhs.id == rhs.id
     }
 }
