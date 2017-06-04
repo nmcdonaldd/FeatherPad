@@ -26,22 +26,19 @@ import Foundation
 
 class Settings {
     
-    static private var _usesCelsius: Bool!
-    static var usesCelsius: Bool! {
-        get {
-            if _usesCelsius == nil {
-                // Need to read from defaults.
-                let defaults = UserDefaults.standard
-                _usesCelsius = defaults.value(forKey: "usesCelsiusSetting") as? Bool ?? false
-            }
-            return _usesCelsius
-        }
-        
-        set {
+    static private var _usesCelsius: Bool! {
+        didSet {
             let defaults = UserDefaults.standard
-            defaults.set(newValue, forKey: "usesCelsiusSetting")
+            defaults.set(_usesCelsius, forKey: "usesCelsiusSetting")
             defaults.synchronize()
-            _usesCelsius = newValue
         }
+    }
+    static var usesCelsius: Bool! {
+        if _usesCelsius == nil {
+            // Need to read from defaults.
+            let defaults = UserDefaults.standard
+            _usesCelsius = defaults.value(forKey: "usesCelsiusSetting") as? Bool ?? false
+        }
+        return _usesCelsius
     }
 }
