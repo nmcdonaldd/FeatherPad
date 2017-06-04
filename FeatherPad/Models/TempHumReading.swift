@@ -28,7 +28,25 @@ import SwiftDate
 class TempHumReading {
     
     /// This is the temperature value of the reading in Celsius.
-    var temperatureValue: Int!
+    var temperatureValue: Int! {
+        if !Settings.usesCelsius {
+            // This means we are using Fahrenheit.
+            return Int((Double(self.tempInCelsius) * (9.0/5.0) + 32))
+        }
+        return self.tempInCelsius
+    }
+    
+    /// This is the formatted temperature value represented in a String. I.e. 70*F
+    var formattedTemperature: String! {
+        let celciusSetting: Bool = Settings.usesCelsius
+        let unitString = celciusSetting ? "C" : "F"
+        return "\(self.temperatureValue!)° \(unitString)"
+    }
+    
+    private var tempInCelsius: Int!
+    
+    /// This is the temperature value of the reading in fahrenheit.
+    var temperatureValueFahrenheit: Int!
     
     /// This is the humidity value of the reading as a percentage.
     var humidityValue: Int!
@@ -49,7 +67,7 @@ class TempHumReading {
     }
     
     init(withDictionary inputDict: [String: Any?]) {
-        self.temperatureValue = inputDict["temperature"] as! Int
+        self.tempInCelsius = inputDict["temperature"] as! Int
         self.humidityValue = inputDict["humidity"] as! Int
         self.id = inputDict["id"] as! Int
         

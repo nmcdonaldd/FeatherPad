@@ -1,5 +1,5 @@
 //
-//  HistoryTableView.swift
+//  Settings.swift
 //
 //  Copyright © 2017 Team Exponent (https://featherpad.herokuapp.com)
 //
@@ -22,35 +22,26 @@
 //  THE SOFTWARE.
 //
 
-import UIKit
+import Foundation
 
-class HistoryTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var temperatureLabel: UILabel!
-    @IBOutlet weak var humidityLabel: UILabel!
+class Settings {
     
-    var readingInfo: TempHumReading? {
-        didSet {
-            guard let readingInfo = self.readingInfo else {
-                return
+    static private var _usesCelsius: Bool!
+    static var usesCelsius: Bool! {
+        get {
+            if _usesCelsius == nil {
+                // Need to read from defaults.
+                let defaults = UserDefaults.standard
+                _usesCelsius = defaults.value(forKey: "usesCelsiusSetting") as? Bool ?? false
             }
-            self.temperatureLabel.text = readingInfo.formattedTemperature
-            self.humidityLabel.text = "\(readingInfo.humidityValue!)%"
-            self.timeLabel.text = self.readingInfo?.relativeTimeStamp
+            return _usesCelsius
+        }
+        
+        set {
+            let defaults = UserDefaults.standard
+            defaults.set(newValue, forKey: "usesCelsiusSetting")
+            defaults.synchronize()
+            _usesCelsius = newValue
         }
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-        self.selectionStyle = .none
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

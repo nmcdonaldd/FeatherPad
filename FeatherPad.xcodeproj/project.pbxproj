@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		245C69EAA2C2F55848FD217D /* Pods_FeatherPad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C400E1BB33CD26D0864616 /* Pods_FeatherPad.framework */; };
 		640025597103AF9FCE3EE913 /* Pods_FeatherPadTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DBC094D6C08BAF2353D4E5 /* Pods_FeatherPadTests.framework */; };
+		D501B2521EE4919C00D68603 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D501B2511EE4919C00D68603 /* Settings.swift */; };
 		D50831341EE38D58009BA879 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50831331EE38D58009BA879 /* HistoryTableViewCell.swift */; };
 		D50831371EE38DFE009BA879 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D50831361EE38DFE009BA879 /* Home.storyboard */; };
 		D50831391EE38E09009BA879 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D50831381EE38E09009BA879 /* Main.storyboard */; };
@@ -61,6 +62,7 @@
 		95C400E1BB33CD26D0864616 /* Pods_FeatherPad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeatherPad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD05BECC91D3CDC797AF097C /* Pods-FeatherPadTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeatherPadTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FeatherPadTests/Pods-FeatherPadTests.release.xcconfig"; sourceTree = "<group>"; };
 		B1A20AE1F4FE1C53B0F3AF39 /* Pods_FeatherPadUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeatherPadUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D501B2511EE4919C00D68603 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Settings.swift; path = Models/Settings.swift; sourceTree = "<group>"; };
 		D50831331EE38D58009BA879 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryTableViewCell.swift; path = UI/Views/HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		D50831361EE38DFE009BA879 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Home.storyboard; path = UI/Storyboards/Home.storyboard; sourceTree = "<group>"; };
 		D50831381EE38E09009BA879 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -144,6 +146,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D501B24E1EE48F4400D68603 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				D5584FAD1EE090F8002BF512 /* History.storyboard */,
+			);
+			name = History;
+			sourceTree = "<group>";
+		};
+		D501B24F1EE48F5600D68603 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D50831361EE38DFE009BA879 /* Home.storyboard */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		D501B2501EE48F6400D68603 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D5584FAC1EE090F8002BF512 /* Login.storyboard */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		D5375B1E1EDD350D00FB45A5 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +240,7 @@
 				D5D6E7BF1EDD1641004A0E91 /* FeatherPadDevice.swift */,
 				D5D6E7C11EDD16CE004A0E91 /* ForcePadAlert.swift */,
 				D5ED5BA11EE36EB900621026 /* TempHumReading.swift */,
+				D501B2511EE4919C00D68603 /* Settings.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -252,11 +279,11 @@
 		D5D6E7BC1EDD15C1004A0E91 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				D5584FAB1EE090F8002BF512 /* LaunchScreen.storyboard */,
-				D5584FAC1EE090F8002BF512 /* Login.storyboard */,
-				D5584FAD1EE090F8002BF512 /* History.storyboard */,
-				D50831361EE38DFE009BA879 /* Home.storyboard */,
 				D50831381EE38E09009BA879 /* Main.storyboard */,
+				D501B2501EE48F6400D68603 /* Login */,
+				D501B24F1EE48F5600D68603 /* Home */,
+				D501B24E1EE48F4400D68603 /* History */,
+				D5584FAB1EE090F8002BF512 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -566,6 +593,7 @@
 				D508790E1EDF887F00F11156 /* LoginTextField.swift in Sources */,
 				D5375B1D1EDD34FD00FB45A5 /* FeatherPadClient.swift in Sources */,
 				D52065191EE0F2DB00CB155C /* BaseNavigationController.swift in Sources */,
+				D501B2521EE4919C00D68603 /* Settings.swift in Sources */,
 				D5D6E7871EDD153B004A0E91 /* AppDelegate.swift in Sources */,
 				D5D6E7C01EDD1641004A0E91 /* FeatherPadDevice.swift in Sources */,
 				D5D6E78F1EDD153B004A0E91 /* FeatherPad.xcdatamodeld in Sources */,
