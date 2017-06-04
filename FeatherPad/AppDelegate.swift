@@ -128,6 +128,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SVProgressHUD.setForegroundColor(appPrimaryColor)
         SVProgressHUD.setBackgroundColor(UIColor.white)
         SVProgressHUD.setBackgroundLayerColor(UIColor(white: 0, alpha: 0.4))
+        SVProgressHUD.setDefaultMaskType(.black)
     }
 
 }

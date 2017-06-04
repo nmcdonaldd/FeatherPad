@@ -52,10 +52,9 @@ class FeatherPadDevice: Hashable {
     func updateDeviceReadings(success: @escaping ([TempHumReading]?, [ForcePadAlert]?)->(), failure: @escaping (Error?)->()) {
         let fpClient = FeatherPadClient()
         let group = DispatchGroup()
-//        let queue = DispatchQueue(label: "com.exponent.fpClientQueue", attributes: .concurrent)
         var returnedTempHumReadings: [TempHumReading]?
         //var returnedForcePadAlerts: [ForcePadAlert]?
-        //queue.async {
+        
         // Enter the group for getting temp/hum alerts.
         group.enter()
         fpClient.getTempHumReadingsForDeviceWithID(self.id!, success: { (tempHumReadings: [TempHumReading]?) in
@@ -68,7 +67,6 @@ class FeatherPadDevice: Hashable {
             failure(error)
             group.leave()
         })
-        //}
 //        queue.async {
 //            // Enter the group for getting ForcePad alerts.
 //            group.enter()

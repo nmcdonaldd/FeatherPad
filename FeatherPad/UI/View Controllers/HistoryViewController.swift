@@ -41,7 +41,6 @@ class HistoryViewController: UIViewController {
         self.title = "History"
         self.devices = User.currentUser!.associatedDevices
         self.historyTableView.dataSource = self
-        self.loadReadings()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +50,7 @@ class HistoryViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.loadReadings()
     }
     
     private func loadReadings() {
@@ -60,25 +60,21 @@ class HistoryViewController: UIViewController {
         /// Need to get the reading for every device.
         let group = DispatchGroup()     // Use a dispatch group so that we can update once all requests for all devices complete.
         for device in self.devices! {
-            print("Entering group!")
             var readingsForDevice: [TempHumReading]?
             group.enter()
             device.updateDeviceReadings(success: { (tempHum: [TempHumReading]?, alerts: [ForcePadAlert]?) in
                 if let _ = tempHum {
                     readingsForDevice = tempHum
                     self.deviceReadings.updateValue(readingsForDevice!, forKey: device)
+                    group.leave()
                 }
-                print("Leaving group!")
-                group.leave()
             }, failure: { (error: Error?) in
                 // Do something with error.
-                print("Could not update readings for device with id: \(device.id!)")
                 group.leave()
             })
         }
         group.notify(queue: .main) {
             // This executes when all devices have finished loading their readings.
-            print("jlkajsldkf")
             self.historyTableView.reloadData()
             SVProgressHUD.dismiss()
         }
@@ -102,7 +98,6 @@ extension HistoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let device = self.devices?[0]
         let readings = self.deviceReadings[device!]
-        print("Count: \(readings?.count ?? 0)")
         return readings?.count ?? 0
     }
 }
