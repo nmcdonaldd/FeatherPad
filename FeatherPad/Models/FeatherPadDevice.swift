@@ -71,7 +71,7 @@ class FeatherPadDevice {
 //            group.leave()
 //        }
         group.notify(queue: queue) {
-            // TODO: - Remove the nil once the temp hum readings have updated.
+            // TODO: - Remove the nil once the force pad alerts have updated.
             success(returnedTempHumReadings, nil)
         }
     }
