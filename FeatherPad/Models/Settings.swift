@@ -33,6 +33,7 @@ class Settings {
             defaults.synchronize()
         }
     }
+    
     static var usesCelsius: Bool! {
         get {
             if _usesCelsius == nil {

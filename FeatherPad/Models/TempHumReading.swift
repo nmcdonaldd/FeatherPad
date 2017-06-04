@@ -27,6 +27,8 @@ import SwiftDate
 
 class TempHumReading {
     
+    private static let topTemperatureValue = 28
+    
     /// This is the temperature value of the reading in Celsius.
     var temperatureValue: Int! {
         if !Settings.usesCelsius {
@@ -35,6 +37,8 @@ class TempHumReading {
         }
         return self.tempInCelsius
     }
+    
+    var isAboveThreshold: Bool!
     
     /// This is the formatted temperature value represented in a String. I.e. 70*F
     var formattedTemperature: String! {
@@ -70,6 +74,7 @@ class TempHumReading {
         self.tempInCelsius = inputDict["temperature"] as! Int
         self.humidityValue = inputDict["humidity"] as! Int
         self.id = inputDict["id"] as! Int
+        self.isAboveThreshold = self.tempInCelsius > TempHumReading.topTemperatureValue
         
         // Format the date input to a Date object using DateFormatter.
         // Example format of the timestamp is "Sun, 07 May 2017 23:14:50 GMT".

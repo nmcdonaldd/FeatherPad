@@ -25,10 +25,15 @@
 import UIKit
 
 class HistoryTableViewCell: UITableViewCell {
+    
+    private static let greenColor = UIColor(red: 67/255, green: 160/255, blue: 71/255, alpha: 1.0)
+    private static let warningColor = UIColor(red: 229/255, green: 57/255, blue: 52/255, alpha: 1.0)
+    private static let normalTempColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1.0)
 
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var humidityLabel: UILabel!
+    @IBOutlet weak var statusColorView: UIView!
     
     var readingInfo: TempHumReading? {
         didSet {
@@ -38,6 +43,12 @@ class HistoryTableViewCell: UITableViewCell {
             self.temperatureLabel.text = readingInfo.formattedTemperature
             self.humidityLabel.text = "\(readingInfo.humidityValue!)%"
             self.timeLabel.text = self.readingInfo?.relativeTimeStamp
+            
+            if readingInfo.isAboveThreshold {
+                self.timeLabel.textColor = HistoryTableViewCell.warningColor
+                self.temperatureLabel.textColor = HistoryTableViewCell.warningColor
+                self.statusColorView.backgroundColor = HistoryTableViewCell.warningColor
+            }
         }
     }
     
@@ -51,6 +62,13 @@ class HistoryTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.temperatureLabel.textColor = HistoryTableViewCell.normalTempColor
+        self.timeLabel.textColor = HistoryTableViewCell.greenColor
+        self.statusColorView.backgroundColor = HistoryTableViewCell.greenColor
     }
 
 }
