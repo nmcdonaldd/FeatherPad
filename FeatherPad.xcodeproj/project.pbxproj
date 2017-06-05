@@ -16,6 +16,7 @@
 		D508313B1EE38F2F009BA879 /* FeatherPadTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D508313A1EE38F2F009BA879 /* FeatherPadTabBarController.swift */; };
 		D508790E1EDF887F00F11156 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D508790D1EDF887F00F11156 /* LoginTextField.swift */; };
 		D52065191EE0F2DB00CB155C /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52065181EE0F2DB00CB155C /* BaseNavigationController.swift */; };
+		D530D5241EE51EE8007DB0C7 /* Devices.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D530D5231EE51EE8007DB0C7 /* Devices.storyboard */; };
 		D5375B1D1EDD34FD00FB45A5 /* FeatherPadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5375B1C1EDD34FD00FB45A5 /* FeatherPadClient.swift */; };
 		D5584FAE1EE090F8002BF512 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5584FAB1EE090F8002BF512 /* LaunchScreen.storyboard */; };
 		D5584FAF1EE090F8002BF512 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5584FAC1EE090F8002BF512 /* Login.storyboard */; };
@@ -71,6 +72,7 @@
 		D508313A1EE38F2F009BA879 /* FeatherPadTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeatherPadTabBarController.swift; path = "UI/View Controllers/FeatherPadTabBarController.swift"; sourceTree = "<group>"; };
 		D508790D1EDF887F00F11156 /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginTextField.swift; path = UI/Views/LoginTextField.swift; sourceTree = "<group>"; };
 		D52065181EE0F2DB00CB155C /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseNavigationController.swift; path = "UI/View Controllers/BaseNavigationController.swift"; sourceTree = "<group>"; };
+		D530D5231EE51EE8007DB0C7 /* Devices.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Devices.storyboard; path = UI/Storyboards/Devices.storyboard; sourceTree = "<group>"; };
 		D5375B1C1EDD34FD00FB45A5 /* FeatherPadClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeatherPadClient.swift; path = API/FeatherPadClient.swift; sourceTree = "<group>"; };
 		D5584FAB1EE090F8002BF512 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = UI/Storyboards/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D5584FAC1EE090F8002BF512 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = UI/Storyboards/Login.storyboard; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				D50831381EE38E09009BA879 /* Main.storyboard */,
+				D530D5231EE51EE8007DB0C7 /* Devices.storyboard */,
 				D501B2501EE48F6400D68603 /* Login */,
 				D501B24F1EE48F5600D68603 /* Home */,
 				D501B24E1EE48F4400D68603 /* History */,
@@ -433,6 +436,7 @@
 				D50831371EE38DFE009BA879 /* Home.storyboard in Resources */,
 				D5584FAE1EE090F8002BF512 /* LaunchScreen.storyboard in Resources */,
 				D50831391EE38E09009BA879 /* Main.storyboard in Resources */,
+				D530D5241EE51EE8007DB0C7 /* Devices.storyboard in Resources */,
 				D5584FAF1EE090F8002BF512 /* Login.storyboard in Resources */,
 				D5584FB01EE090F8002BF512 /* History.storyboard in Resources */,
 			);

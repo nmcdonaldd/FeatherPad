@@ -50,10 +50,10 @@ class LoginViewController: UIViewController {
         SVProgressHUD.show()
         User.loginUser(withUsername: self.usernameTextField.text, password: self.passwordTextField.text, success: { 
             // Move to logged-in VC.
-            SVProgressHUD.dismiss()
             let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let mainVC = mainStoryboard.instantiateInitialViewController()
             DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
                 self.present(mainVC!, animated: true, completion: nil)
             }
         }) { (error: Error?) in
