@@ -102,10 +102,9 @@ class FeatherPadClient {
     // TODO: - Add an endpoint for reading the ForcePad alerts generated from the Pi.
     /// Method to get the data of ForcePadAlert readigns from the API.
     func getForcePadAlertsForDeviceWithID(_ id: String, success: @escaping ([ForcePadAlert]?)->(), failure: @escaping (Error?)->()) {
-        // IMPLEMENT ME.
+        // TODO: - IMPLEMENT ME.
         fatalError()
     }
-    
     
     fileprivate func api(endpoint: String, type: HTTPType, success: @escaping (Data?)->(), failure: @escaping (Error?)->()) {
         guard let requestURL = URL(string: endpoint, relativeTo: FeatherPadClient.baseAPIURL) else {
