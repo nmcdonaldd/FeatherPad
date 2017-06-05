@@ -46,11 +46,17 @@ class User {
             if _currentUser == nil {
                 // Check if there are any stored stuff. Can simply use user defaults.
                 let defaults = UserDefaults.standard
-                guard let deviceIDs = defaults.stringArray(forKey: User.defaultUserDevicesIDsIdentifier) else {
+                guard let deviceDatas = defaults.value(forKey: User.defaultUserDevicesIDsIdentifier) as? [Data] else {
                     // This means there are no defaults for the user. --> No logged-in user.
                     return nil
                 }
-                let devices = FeatherPadDevice.DevicesFromIDs(deviceIDs)
+                // Now have array of data: [Data].
+                var devices = [FeatherPadDevice]()
+                for deviceData in deviceDatas {
+                    let deviceAsDict = try! JSONSerialization.jsonObject(with: deviceData, options: .allowFragments) as! [String: Any?]
+                    let device = FeatherPadDevice(inputDict: deviceAsDict)
+                    devices.append(device)
+                }
                 _currentUser = User(withDevices: devices)
                 return _currentUser
             } else {
@@ -62,11 +68,13 @@ class User {
             _currentUser = newValue
             let defaults = UserDefaults.standard
             if let currentUser = newValue {
-                var deviceIDs = [String]()
+                var deviceDatas = [Data]()
                 for device in (currentUser.associatedDevices)! {
-                    deviceIDs.append(device.id!)
+                    let dict = device.asDict
+                    let data = try! JSONSerialization.data(withJSONObject: dict as Any, options: [])
+                    deviceDatas.append(data)
                 }
-                defaults.set(deviceIDs, forKey: User.defaultUserDevicesIDsIdentifier)
+                defaults.set(deviceDatas, forKey: User.defaultUserDevicesIDsIdentifier)
             }
             else {
                 defaults.set(nil, forKey: User.defaultUserDevicesIDsIdentifier)

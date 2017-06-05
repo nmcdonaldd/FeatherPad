@@ -28,20 +28,19 @@ import SVProgressHUD
 class HistoryViewController: UIViewController {
     
     @IBOutlet weak var historyTableView: UITableView!
-    fileprivate var devices: [FeatherPadDevice]?
+    fileprivate var readings: [TempHumReading]?
     private var refreshControl: UIRefreshControl?
     
-    /// Mapping of device readings to a list of their temp/hum readings.
-    lazy fileprivate var deviceReadings: [FeatherPadDevice: [TempHumReading]] = {
-        return [FeatherPadDevice: [TempHumReading]]()
-    }()
+    @IBOutlet weak var navigationTitleContainerView: UIView!
+    @IBOutlet weak var navigationTitleImageView: UIImageView!
+    @IBOutlet weak var navigationTitleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "History"
-        self.devices = User.currentUser!.associatedDevices
         self.historyTableView.dataSource = self
+        self.navigationTitleLabel.text = FeatherPadDevice.currentSelectedDevice?.name ?? "Nick"
         SVProgressHUD.show()
         self.loadReadings()
         self.setUpRefreshControl()
@@ -52,10 +51,6 @@ class HistoryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//    }
-    
     private func setUpRefreshControl() {
         self.refreshControl = UIRefreshControl()
         self.refreshControl!.backgroundColor = UIColor.clear
@@ -64,48 +59,49 @@ class HistoryViewController: UIViewController {
     }
     
     @objc private func loadReadings() {
-        /// Need to get the reading for every device.
-        let group = DispatchGroup()     // Use a dispatch group so that we can update once all requests for all devices complete.
-        for device in self.devices! {
-            var readingsForDevice: [TempHumReading]?
-            group.enter()
-            device.updateDeviceReadings(success: { (tempHum: [TempHumReading]?, alerts: [ForcePadAlert]?) in
-                if let _ = tempHum {
-                    readingsForDevice = tempHum
-                    self.deviceReadings.updateValue(readingsForDevice!, forKey: device)
-                    group.leave()
-                }
-            }, failure: { (error: Error?) in
-                // Do something with error.
-                group.leave()
-            })
+        // Load the currently-selected device's readings.
+        guard let device = FeatherPadDevice.currentSelectedDevice else {
+            print("No devices!")
+            return
         }
-        group.notify(queue: .main) {
-            // This executes when all devices have finished loading their readings.
-            self.historyTableView.reloadData()
+        device.updateDeviceReadings(success: { (tempHum: [TempHumReading]?, alerts: [ForcePadAlert]?) in
+            if let _ = tempHum {
+                self.readings = tempHum
+                self.historyTableView.reloadData()
+            }
             SVProgressHUD.dismiss()
             self.refreshControl?.endRefreshing()
-        }
+        }, failure: { (error: Error?) in
+            SVProgressHUD.dismiss()
+            self.refreshControl?.endRefreshing()
+            // Do something with error.
+        })
+    }
+    
+    @IBAction func unwindFromSwitchDevices(sender: UIStoryboardSegue) {
+        self.navigationTitleLabel.text = FeatherPadDevice.currentSelectedDevice?.name ?? "Sam"
+        SVProgressHUD.show()
+        self.loadReadings()
     }
     
     @IBAction func logoutBarButtonItemTapped(_ sender: UIBarButtonItem) {
         User.logoutCurrentUser(completion: nil)
+    }
+    
+    @IBAction func userTappedTitleNavigationView(_ sender: UITapGestureRecognizer) {
+        self.performSegue(withIdentifier: "toSwitchDevice", sender: self)
     }
 }
 
 extension HistoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.historyTableView.dequeueReusableCell(withIdentifier: "HistoryTableViewCell") as! HistoryTableViewCell
-        let device = self.devices?[0]
-        let readings = self.deviceReadings[device!]
-        cell.readingInfo = readings?[indexPath.row]
+        cell.readingInfo = self.readings?[indexPath.row]
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let device = self.devices?[0]
-        let readings = self.deviceReadings[device!]
-        return readings?.count ?? 0
+        return self.readings?.count ?? 0
     }
 }

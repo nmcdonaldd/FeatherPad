@@ -55,7 +55,7 @@ class FeatherPadClient {
             }
             
             // Cast the return value as an array of [String: Any?].
-            if let dictionaries = try? JSONSerialization.jsonObject(with: response!, options: JSONSerialization.ReadingOptions.allowFragments) as? [[String: Any?]] {
+            if let dictionaries = try? JSONSerialization.jsonObject(with: response!, options: []/*JSONSerialization.ReadingOptions.allowFragments*/) as? [[String: Any?]] {
                 let devices = FeatherPadDevice.DevicesFromDict(dictionaries!)
                 let loggedInUser = User(withDevices: devices)
                 

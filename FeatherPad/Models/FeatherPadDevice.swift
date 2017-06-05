@@ -26,6 +26,9 @@ import UIKit
 
 class FeatherPadDevice: Hashable {
     
+    /// Name of the device.
+    var name: String?
+    
     /// ID of the device.
     var id: String?
     
@@ -40,12 +43,30 @@ class FeatherPadDevice: Hashable {
         return Int(self.id!)!
     }
     
-    init(withDeviceID deviceID: String) {
-        self.id = deviceID
+    /// Dictionary of device.
+    var asDict: [String: Any?]?
+    
+    static private var _currentDevice: FeatherPadDevice?
+    
+    /// Current device.
+    static var currentSelectedDevice: FeatherPadDevice? {
+        get {
+            if _currentDevice == nil {
+                // Grab from defaults.
+                _currentDevice = User.currentUser?.associatedDevices?[0]
+            }
+            return _currentDevice
+        }
+        
+        set {
+            _currentDevice = newValue
+        }
     }
     
-    convenience init(inputDict: [String : Any?]) {
-        self.init(withDeviceID: inputDict["device_id"] as! String)
+    init(inputDict: [String : Any?]) {
+        self.asDict = inputDict
+        self.id = inputDict["device_id"] as? String
+        self.name = inputDict["device_name"] as? String ?? self.id
     }
     
     /// Method to update this devices temperature humidity readings as well as ForcePadAlerts. NOTE: the success or failure block might not be called on the Main queue.
@@ -78,14 +99,6 @@ class FeatherPadDevice: Hashable {
             // TODO: - Remove the nil once the force pad alerts have updated.
             success(returnedTempHumReadings, nil)
         }
-    }
-    
-    class func DevicesFromIDs(_ ids: [String]) -> [FeatherPadDevice] {
-        var toReturn = [FeatherPadDevice]()
-        for id in ids {
-            toReturn.append(FeatherPadDevice(withDeviceID: id))
-        }
-        return toReturn
     }
     
     class func DevicesFromDict(_ devices: [[String: Any?]]) -> [FeatherPadDevice] {
