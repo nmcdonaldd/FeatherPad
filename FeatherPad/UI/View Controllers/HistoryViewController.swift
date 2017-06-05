@@ -40,6 +40,8 @@ class HistoryViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "History"
         self.historyTableView.dataSource = self
+        self.historyTableView.estimatedRowHeight = 48
+        self.historyTableView.rowHeight = UITableViewAutomaticDimension
         self.navigationTitleLabel.text = FeatherPadDevice.currentSelectedDevice?.name ?? "Nick"
         SVProgressHUD.show()
         self.loadReadings()

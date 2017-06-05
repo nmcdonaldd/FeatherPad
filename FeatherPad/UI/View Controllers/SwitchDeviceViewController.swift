@@ -40,6 +40,8 @@ class SwitchDeviceViewController: UIViewController {
         self.devices = User.currentUser?.associatedDevices
         self.switchDevicesTableView.dataSource = self
         self.switchDevicesTableView.delegate = self
+        self.switchDevicesTableView.rowHeight = UITableViewAutomaticDimension
+        self.switchDevicesTableView.estimatedRowHeight = 58
     }
 
     override func didReceiveMemoryWarning() {
