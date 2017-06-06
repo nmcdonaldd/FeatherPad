@@ -24,6 +24,14 @@
 
 import UIKit
 
+enum DeviceNotificationCenterOps: String {
+    case currentlySelectedDeviceDidChange = "SelectedDeviceChanged"
+    
+    var notification: Notification.Name {
+        return Notification.Name(rawValue: self.rawValue)
+    }
+}
+
 class FeatherPadDevice: Hashable {
     
     /// Name of the device.
@@ -60,6 +68,7 @@ class FeatherPadDevice: Hashable {
         
         set {
             _currentDevice = newValue
+            NotificationCenter.default.post(name: DeviceNotificationCenterOps.currentlySelectedDeviceDidChange.notification, object: newValue)
         }
     }
     

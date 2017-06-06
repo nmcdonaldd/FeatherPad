@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pvJ-rK-jEI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="y3t-fm-fXP">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Home View Controller-->
         <scene sceneID="2W5-Eu-QzS">
             <objects>
-                <viewController id="pvJ-rK-jEI" sceneMemberID="viewController">
+                <viewController id="pvJ-rK-jEI" customClass="HomeViewController" customModule="FeatherPad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="r7U-vn-B8c"/>
                         <viewControllerLayoutGuide type="bottom" id="eUu-Ll-ju2"/>
@@ -22,12 +22,97 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="oCN-Lm-R0B"/>
+                    <navigationItem key="navigationItem" id="gvO-TJ-2ls">
+                        <nil key="title"/>
+                        <view key="titleView" contentMode="scaleToFill" id="hJn-ih-g0K">
+                            <rect key="frame" x="112.5" y="5.5" width="150" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xdC-9X-bby">
+                                    <rect key="frame" x="41.5" y="8" width="67" height="17.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Josh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gX-gi-51q">
+                                            <rect key="frame" x="8" y="0.0" width="43" height="23"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                            <color key="textColor" red="0.95294117649999999" green="0.37254901959999998" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Arrow Down" translatesAutoresizingMaskIntoConstraints="NO" id="kuZ-KL-WJs">
+                                            <rect key="frame" x="55" y="5.5" width="12" height="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="12" id="KWh-1v-qIe"/>
+                                                <constraint firstAttribute="height" constant="12" id="kvr-CM-hwf"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <gestureRecognizers/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="kuZ-KL-WJs" secondAttribute="bottom" id="S1f-sq-Mkm"/>
+                                        <constraint firstAttribute="trailing" secondItem="kuZ-KL-WJs" secondAttribute="trailing" id="aq4-Uv-1d1"/>
+                                        <constraint firstItem="kuZ-KL-WJs" firstAttribute="centerY" secondItem="4gX-gi-51q" secondAttribute="centerY" id="f9F-qI-FMr"/>
+                                        <constraint firstItem="4gX-gi-51q" firstAttribute="leading" secondItem="xdC-9X-bby" secondAttribute="leading" constant="8" id="nM0-fV-Xug"/>
+                                        <constraint firstItem="kuZ-KL-WJs" firstAttribute="leading" secondItem="4gX-gi-51q" secondAttribute="trailing" constant="4" id="v5y-Vs-oYo"/>
+                                        <constraint firstItem="4gX-gi-51q" firstAttribute="top" secondItem="xdC-9X-bby" secondAttribute="top" id="xn0-6t-YTi"/>
+                                    </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="5al-HB-3vE" appends="YES" id="VvU-ad-bmh"/>
+                                    </connections>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="xdC-9X-bby" firstAttribute="centerY" secondItem="hJn-ih-g0K" secondAttribute="centerY" id="3wP-BT-yvJ"/>
+                                <constraint firstItem="xdC-9X-bby" firstAttribute="centerX" secondItem="hJn-ih-g0K" secondAttribute="centerX" id="OVR-0W-DdG"/>
+                            </constraints>
+                        </view>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="titleNavigationLabel" destination="4gX-gi-51q" id="ztN-WN-4Mk"/>
+                        <segue destination="4pI-e2-g3m" kind="presentation" identifier="toDeviceSelector" id="byh-P8-vpS"/>
+                        <segue destination="FNs-Ou-wd5" kind="unwind" unwindAction="unwindFromSwitchDevicesWithSender:" id="QCf-zX-7Dv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnW-H4-gKt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="FNs-Ou-wd5" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="5al-HB-3vE">
+                    <connections>
+                        <action selector="userTappedDeviceName:" destination="pvJ-rK-jEI" id="LVX-Ao-DC9"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="34" y="61"/>
+            <point key="canvasLocation" x="972" y="60.719640179910051"/>
+        </scene>
+        <!--Devices-->
+        <scene sceneID="1pg-8c-zMi">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Devices" id="4pI-e2-g3m" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KFy-tl-hg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1017" y="704"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="XQ6-WE-Kuu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="y3t-fm-fXP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="Home" id="hHi-sz-hsh"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uWd-G6-Oq6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pvJ-rK-jEI" kind="relationship" relationship="rootViewController" id="bFS-og-LdJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sxW-dg-fYR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="60.719640179910051"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Arrow Down" width="100" height="100"/>
+        <image name="Home" width="25" height="25"/>
+    </resources>
 </document>

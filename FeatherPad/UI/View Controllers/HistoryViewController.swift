@@ -42,10 +42,15 @@ class HistoryViewController: UIViewController {
         self.historyTableView.dataSource = self
         self.historyTableView.estimatedRowHeight = 48
         self.historyTableView.rowHeight = UITableViewAutomaticDimension
-        self.navigationTitleLabel.text = FeatherPadDevice.currentSelectedDevice?.name ?? "Nick"
+        self.navigationTitleLabel.text = FeatherPadDevice.currentSelectedDevice?.name
         SVProgressHUD.show()
         self.loadReadings()
         self.setUpRefreshControl()
+        
+        NotificationCenter.default.addObserver(forName: DeviceNotificationCenterOps.currentlySelectedDeviceDidChange.notification, object: nil, queue: .main) { (notification: Notification) in
+            let selectedDevice = notification.object as! FeatherPadDevice
+            self.navigationTitleLabel.text = selectedDevice.name
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,7 +86,6 @@ class HistoryViewController: UIViewController {
     }
     
     @IBAction func unwindFromSwitchDevices(sender: UIStoryboardSegue) {
-        self.navigationTitleLabel.text = FeatherPadDevice.currentSelectedDevice?.name ?? "Sam"
         SVProgressHUD.show()
         self.loadReadings()
     }
