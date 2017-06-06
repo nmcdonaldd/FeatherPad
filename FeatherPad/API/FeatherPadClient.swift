@@ -42,7 +42,7 @@ class FeatherPadClient {
     private static let baseAPIURL = URL(string: "https://featherpad.herokuapp.com/api/")!
     private static let loginEndpoint = "login_mobile/create"    // Append Username and password: <string:username>/<string:password>
     private static let readTempHumEndpoint = "temp_hum"         // Append the device id: "1234"
-    private static let readForcePadAlertsEndpoint = ""
+    private static let readForcePadAlertsEndpoint = "alerts"
     
     /// Login method that makes an HTTP Request to log the user in.
     func login(withUsername username: String, password: String, success: @escaping (User)->(), failure: @escaping (Error?)->()) {
@@ -99,11 +99,28 @@ class FeatherPadClient {
         }
     }
     
-    // TODO: - Add an endpoint for reading the ForcePad alerts generated from the Pi.
     /// Method to get the data of ForcePadAlert readigns from the API.
     func getForcePadAlertsForDeviceWithID(_ id: String, success: @escaping ([ForcePadAlert]?)->(), failure: @escaping (Error?)->()) {
-        // TODO: - IMPLEMENT ME.
-        fatalError()
+        self.api(endpoint: FeatherPadClient.readForcePadAlertsEndpoint, type: .get, success: { (response: Data?) in
+            // This block should handle creating the alert objects and passing them off to the success.
+            guard response != nil else {
+                failure(FeatherPadClientError.InvalidResponse("Server returned nil data"))
+                return
+            }
+            
+            // Cast the return value as an array of [String: Any?].
+            if let dictionaries = try? JSONSerialization.jsonObject(with: response!, options: JSONSerialization.ReadingOptions.allowFragments) as? [[String: Any?]] {
+                let alerts = ForcePadAlert.AlertsFromDictionary(inputDict: dictionaries!)
+                // Run the success block with the new alerts.
+                success(alerts)
+                return
+            } else {
+                failure(FeatherPadClientError.DataSerializationError)
+                return
+            }
+        }) { (error: Error?) in
+            // Failure.
+        }
     }
     
     fileprivate func api(endpoint: String, type: HTTPType, success: @escaping (Data?)->(), failure: @escaping (Error?)->()) {

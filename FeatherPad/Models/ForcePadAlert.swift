@@ -23,11 +23,63 @@
 //
 
 import UIKit
+import SwiftDate
+
+enum SensorLocation {
+    case left
+    case middle
+    case right
+    case noAlert
+}
 
 class ForcePadAlert {
     
-//    class func alertsFromDict() -> [ForcePadAlerts] {
-//        
-//    }
+    /// ID of the alert.
+    var id: Int?
+    
+    /// Timestamp of the alert.
+    var timestamp: Date!
+    
+    /// Which sensor triggered the alert.
+    var alertingSensor: SensorLocation = .noAlert
+    
+    /// Formatted (relative) date.
+    // This is a computed property since asking for the reading object's realtive time can happen at a later time.
+    var relativeTimeStamp: String! {
+        let din: DateInRegion? = DateInRegion(absoluteDate: self.timestamp)
+            return din!.string(dateStyle: .short, timeStyle: .short)
+    }
+    
+    init(withDictionary inputDict: [String: Any?]) {
+        self.id = inputDict["id"] as? Int
+        
+        let locationOfAlert = inputDict["sensor_id"] as! String
+        
+        switch locationOfAlert{
+        case "RIGHT":
+            self.alertingSensor = .right
+        case "MIDDLE":
+            self.alertingSensor = .middle
+        case "LEFT":
+            self.alertingSensor = .right
+        case "NONE":
+            self.alertingSensor = .middle
+        default:
+            print("THIS IS EMBARRASSING, THIS SHOULD BE PRINTED LMAO.")
+        }
+        
+        let df = DateFormatter()
+        df.dateFormat = "EEE, dd MMMM yyyy HH:mm:ss ZZZZ"
+        self.timestamp = df.date(from: (inputDict["timestamp"] as? String)!)
+    }
+    
+    /// Helper function to create an array of alert objects from array of input dictionaries.
+    class func AlertsFromDictionary(inputDict: [[String: Any?]]) -> [ForcePadAlert] {
+        var output = [ForcePadAlert]()
+        for reading in inputDict {
+            output.append(ForcePadAlert(withDictionary: reading))
+        }
+        return output
+    }
 
 }

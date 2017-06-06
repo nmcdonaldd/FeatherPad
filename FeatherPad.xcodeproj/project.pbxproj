@@ -11,6 +11,7 @@
 		640025597103AF9FCE3EE913 /* Pods_FeatherPadTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DBC094D6C08BAF2353D4E5 /* Pods_FeatherPadTests.framework */; };
 		D501B2521EE4919C00D68603 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D501B2511EE4919C00D68603 /* Settings.swift */; };
 		D50784F41EE64B2700D2312A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50784F31EE64B2700D2312A /* HomeViewController.swift */; };
+		D50784F61EE65CDD00D2312A /* TemperatureHumidityLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50784F51EE65CDD00D2312A /* TemperatureHumidityLabel.swift */; };
 		D50831341EE38D58009BA879 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50831331EE38D58009BA879 /* HistoryTableViewCell.swift */; };
 		D50831371EE38DFE009BA879 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D50831361EE38DFE009BA879 /* Home.storyboard */; };
 		D50831391EE38E09009BA879 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D50831381EE38E09009BA879 /* Main.storyboard */; };
@@ -68,6 +69,7 @@
 		B1A20AE1F4FE1C53B0F3AF39 /* Pods_FeatherPadUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeatherPadUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D501B2511EE4919C00D68603 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Settings.swift; path = Models/Settings.swift; sourceTree = "<group>"; };
 		D50784F31EE64B2700D2312A /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = "UI/View Controllers/HomeViewController.swift"; sourceTree = "<group>"; };
+		D50784F51EE65CDD00D2312A /* TemperatureHumidityLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemperatureHumidityLabel.swift; path = UI/Views/TemperatureHumidityLabel.swift; sourceTree = "<group>"; };
 		D50831331EE38D58009BA879 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryTableViewCell.swift; path = UI/Views/HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		D50831361EE38DFE009BA879 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Home.storyboard; path = UI/Storyboards/Home.storyboard; sourceTree = "<group>"; };
 		D50831381EE38E09009BA879 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 				D508790D1EDF887F00F11156 /* LoginTextField.swift */,
 				D50831331EE38D58009BA879 /* HistoryTableViewCell.swift */,
 				D5C367391EE4C055001D3CDA /* DevicesTableViewCell.swift */,
+				D50784F51EE65CDD00D2312A /* TemperatureHumidityLabel.swift */,
 			);
 			name = VIews;
 			sourceTree = "<group>";
@@ -620,6 +623,7 @@
 				D5D6E7891EDD153B004A0E91 /* HistoryViewController.swift in Sources */,
 				D5D6E7CB1EDD1FBC004A0E91 /* Common.swift in Sources */,
 				D5D6E7C21EDD16CE004A0E91 /* ForcePadAlert.swift in Sources */,
+				D50784F61EE65CDD00D2312A /* TemperatureHumidityLabel.swift in Sources */,
 				D508790E1EDF887F00F11156 /* LoginTextField.swift in Sources */,
 				D5375B1D1EDD34FD00FB45A5 /* FeatherPadClient.swift in Sources */,
 				D52065191EE0F2DB00CB155C /* BaseNavigationController.swift in Sources */,

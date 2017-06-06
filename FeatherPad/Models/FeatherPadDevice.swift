@@ -82,31 +82,28 @@ class FeatherPadDevice: Hashable {
     func updateDeviceReadings(success: @escaping ([TempHumReading]?, [ForcePadAlert]?)->(), failure: @escaping (Error?)->()) {
         let fpClient = FeatherPadClient()
         let group = DispatchGroup()
-        var returnedTempHumReadings: [TempHumReading]?
-        //var returnedForcePadAlerts: [ForcePadAlert]?
         
         // Enter the group for getting temp/hum alerts.
         group.enter()
         fpClient.getTempHumReadingsForDeviceWithID(self.id!, success: { (tempHumReadings: [TempHumReading]?) in
             // Success.
             self.tempHumReadings = tempHumReadings
-            returnedTempHumReadings = tempHumReadings
             group.leave()
         }, failure: { (error: Error?) in
             // Failure.
             failure(error)
             group.leave()
         })
-//        queue.async {
-//            // Enter the group for getting ForcePad alerts.
-//            group.enter()
-//            
-//            
-//            group.leave()
-//        }
+        group.enter()
+        fpClient.getForcePadAlertsForDeviceWithID(self.id!, success: { (alerts: [ForcePadAlert]?) in
+            self.forcePadAlerts = alerts
+            group.leave()
+        }) { (error: Error?) in
+            failure(error)
+            group.leave()
+        }
         group.notify(queue: .main) {
-            // TODO: - Remove the nil once the force pad alerts have updated.
-            success(returnedTempHumReadings, nil)
+            success(self.tempHumReadings, self.forcePadAlerts)
         }
     }
     

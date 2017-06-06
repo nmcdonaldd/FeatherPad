@@ -65,8 +65,6 @@ class TempHumReading {
     // This is a computed property since asking for the reading object's realtive time can happen at a later time.
     var relativeTimeStamp: String! {
         let din: DateInRegion? = DateInRegion(absoluteDate: self.timestamp)
-//        let (colloquial, _): (String, String?) =
-//        let actualTime: String =
         if self.isAboveThreshold {
             return din!.string(dateStyle: .short, timeStyle: .short)
         } else {

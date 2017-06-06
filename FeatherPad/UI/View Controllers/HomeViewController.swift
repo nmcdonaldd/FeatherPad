@@ -29,6 +29,12 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var titleNavigationLabel: UILabel!
     
+    @IBOutlet weak var featherPadLeftSideWarningImageView: UIImageView!
+    @IBOutlet weak var featherPadRightSideWarningImageView: UIImageView!
+    
+    @IBOutlet weak var temperatureLabel: TemperatureHumidityLabel!
+    @IBOutlet weak var humidityLabel: TemperatureHumidityLabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,6 +43,32 @@ class HomeViewController: UIViewController {
         NotificationCenter.default.addObserver(forName: DeviceNotificationCenterOps.currentlySelectedDeviceDidChange.notification, object: nil, queue: .main) { (notification: Notification) in
             let selectedDevice = notification.object as! FeatherPadDevice
             self.titleNavigationLabel.text = selectedDevice.name
+        }
+        
+        self.featherPadLeftSideWarningImageView.image = UIImage(cgImage: (self.featherPadRightSideWarningImageView.image?.cgImage)!, scale: (self.featherPadRightSideWarningImageView.image?.scale)!, orientation: UIImageOrientation.upMirrored)
+        self.featherPadLeftSideWarningImageView.isHidden = true
+        self.featherPadRightSideWarningImageView.isHidden = false
+        
+        Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.getUpdatedReadings), userInfo: nil, repeats: true)
+        
+        SVProgressHUD.show()
+        self.getUpdatedReadings()
+    }
+    
+    @objc private func getUpdatedReadings() {
+        guard let device = FeatherPadDevice.currentSelectedDevice else {
+            return
+        }
+        device.updateDeviceReadings(success: { (newTempsHums: [TempHumReading]?, newAlerts: [ForcePadAlert]?) in
+            // Update temp/hum labels.
+            let newest = newTempsHums?.last
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+                self.temperatureLabel.text = newest?.formattedTemperature
+                self.humidityLabel.text = "\((newest?.humidityValue) ?? 18)%"
+            }
+        }) { (error: Error?) in
+            // Nothing for now.
         }
     }
 
@@ -50,20 +82,8 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func unwindFromSwitchDevices(sender: UIStoryboardSegue) {
-        print("Unwind segue worked!!!")
         SVProgressHUD.show()
-//        self.loadReadings()
+        self.getUpdatedReadings()
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
