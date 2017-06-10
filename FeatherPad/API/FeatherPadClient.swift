@@ -31,18 +31,13 @@ private enum HTTPType: String {
     case delete = "DELETE"
 }
 
-enum FeatherPadClientError: Error {
-    case BadURL
-    case InvalidResponse(String)
-    case DataSerializationError
-}
-
 class FeatherPadClient {
     
     private static let baseAPIURL = URL(string: "https://featherpad.herokuapp.com/api/")!
     private static let loginEndpoint = "login_mobile/create"    // Append Username and password: <string:username>/<string:password>
     private static let readTempHumEndpoint = "temp_hum"         // Append the device id: "1234"
     private static let readForcePadAlertsEndpoint = "alerts"
+    private static let addDeviceToAccountEndpiont = "device/create"
     
     /// Login method that makes an HTTP Request to log the user in.
     func login(withUsername username: String, password: String, success: @escaping (User)->(), failure: @escaping (Error?)->()) {
@@ -55,7 +50,7 @@ class FeatherPadClient {
             }
             
             // Cast the return value as an array of [String: Any?].
-            if let dictionaries = try? JSONSerialization.jsonObject(with: response!, options: []/*JSONSerialization.ReadingOptions.allowFragments*/) as? [[String: Any?]] {
+            if let dictionaries = try? JSONSerialization.jsonObject(with: response!, options: []) as? [[String: Any?]] {
                 let devices = FeatherPadDevice.DevicesFromDict(dictionaries!)
                 let loggedInUser = User(withDevices: devices)
                 
@@ -72,6 +67,27 @@ class FeatherPadClient {
         }
     }
     
+    /// Method to get the data of a device.
+    func addDeviceToUserAccount(deviceID: String, deviceName: String, user: User, success: @escaping (FeatherPadDevice?)->(), failure: @escaping (Error?)->()) {
+        self.api(endpoint: FeatherPadClient.addDeviceToAccountEndpiont + "/\(deviceID)/12/\(deviceName)", type: .post, success: { (response: Data?) in
+            // Success block should handle creating the device object and returning it.
+            guard response != nil else {
+                failure(FeatherPadClientError.InvalidResponse("Server returned nil data"))
+                return
+            }
+            
+            // Case the return value as an array of [String: Any?]
+            if let dictionary = try? JSONSerialization.jsonObject(with: response!, options: .allowFragments) as? [String: Any?] {
+                let newDevice = FeatherPadDevice(inputDict: dictionary!)
+                success(newDevice)
+            }
+        }) { (error: Error?) in
+            //
+            failure(error)
+            return
+        }
+    }
+    
     
     /// Method to get the data of temperature_humidity readings from the API.
     func getTempHumReadingsForDeviceWithID(_ id: String, success: @escaping ([TempHumReading]?)->(), failure: @escaping (Error?)->()) {
@@ -82,7 +98,7 @@ class FeatherPadClient {
                 return
             }
             
-            // Cast the return value as an arry of [String: Any?].
+            // Cast the return value as an array of [String: Any?].
             if let dictionaries = try? JSONSerialization.jsonObject(with: response!, options: JSONSerialization.ReadingOptions.allowFragments) as? [[String: Any?]] {
                 let readings = TempHumReading.TempHumReadingsFromDict(inputDict: dictionaries!)
                 // Run the success block with the new readings we just created.
@@ -123,7 +139,8 @@ class FeatherPadClient {
         }
     }
     
-    fileprivate func api(endpoint: String, type: HTTPType, success: @escaping (Data?)->(), failure: @escaping (Error?)->()) {
+    /// General API function to make API calls.
+    private func api(endpoint: String, type: HTTPType, success: @escaping (Data?)->(), failure: @escaping (Error?)->()) {
         guard let requestURL = URL(string: endpoint, relativeTo: FeatherPadClient.baseAPIURL) else {
             failure(FeatherPadClientError.BadURL)   // Bad url, couldn't make URL object from the string.
             return

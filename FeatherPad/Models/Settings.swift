@@ -39,7 +39,7 @@ class Settings {
             if _usesCelsius == nil {
                 // Need to read from defaults.
                 let defaults = UserDefaults.standard
-                _usesCelsius = defaults.value(forKey: "usesCelsiusSetting") as? Bool ?? true
+                _usesCelsius = defaults.value(forKey: "usesCelsiusSetting") as? Bool ?? false
             }
             return _usesCelsius
         }

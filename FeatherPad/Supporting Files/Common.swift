@@ -24,4 +24,7 @@
 
 import UIKit
 
+
+// MARK: - UIKit Commons.
+
 let appPrimaryColor = UIColor(red: 243/255, green: 95/255, blue: 100/255, alpha: 1.0)

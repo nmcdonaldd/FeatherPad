@@ -100,7 +100,11 @@
                                 <constraint firstItem="U2G-rY-qcn" firstAttribute="centerY" secondItem="anv-aC-k0Q" secondAttribute="centerY" id="gii-lP-x0K"/>
                             </constraints>
                         </view>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="i6t-BJ-ggT"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="i6t-BJ-ggT">
+                            <connections>
+                                <action selector="addDeviceButtonTapped:" destination="GcA-0A-E7M" id="5Po-Wl-kuh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="switchDevicesTableView" destination="ZRZ-Rx-54U" id="MWu-F8-tZN"/>

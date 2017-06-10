@@ -28,10 +28,8 @@ import SVProgressHUD
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var titleNavigationLabel: UILabel!
-    
     @IBOutlet weak var featherPadLeftSideWarningImageView: UIImageView!
     @IBOutlet weak var featherPadRightSideWarningImageView: UIImageView!
-    
     @IBOutlet weak var temperatureLabel: TemperatureHumidityLabel!
     @IBOutlet weak var humidityLabel: TemperatureHumidityLabel!
     
@@ -59,6 +57,7 @@ class HomeViewController: UIViewController {
         guard let device = FeatherPadDevice.currentSelectedDevice else {
             return
         }
+        
         device.updateDeviceReadings(success: { (newTempsHums: [TempHumReading]?, newAlerts: [ForcePadAlert]?) in
             // Update temp/hum labels.
             let newest = newTempsHums?.last

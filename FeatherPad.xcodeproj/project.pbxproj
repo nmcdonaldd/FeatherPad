@@ -24,6 +24,7 @@
 		D5584FAF1EE090F8002BF512 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5584FAC1EE090F8002BF512 /* Login.storyboard */; };
 		D5584FB01EE090F8002BF512 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5584FAD1EE090F8002BF512 /* History.storyboard */; };
 		D5708971E3C45C7D2064487A /* Pods_FeatherPadUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A20AE1F4FE1C53B0F3AF39 /* Pods_FeatherPadUITests.framework */; };
+		D5B91C421EEC9BE000D79372 /* FeatherPadClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B91C411EEC9BE000D79372 /* FeatherPadClientError.swift */; };
 		D5C367381EE4B996001D3CDA /* SwitchDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C367371EE4B996001D3CDA /* SwitchDeviceViewController.swift */; };
 		D5C3673A1EE4C055001D3CDA /* DevicesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C367391EE4C055001D3CDA /* DevicesTableViewCell.swift */; };
 		D5D6E7871EDD153B004A0E91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D6E7861EDD153B004A0E91 /* AppDelegate.swift */; };
@@ -81,6 +82,7 @@
 		D5584FAB1EE090F8002BF512 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = UI/Storyboards/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D5584FAC1EE090F8002BF512 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = UI/Storyboards/Login.storyboard; sourceTree = "<group>"; };
 		D5584FAD1EE090F8002BF512 /* History.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = History.storyboard; path = UI/Storyboards/History.storyboard; sourceTree = "<group>"; };
+		D5B91C411EEC9BE000D79372 /* FeatherPadClientError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeatherPadClientError.swift; path = API/FeatherPadClientError.swift; sourceTree = "<group>"; };
 		D5C367371EE4B996001D3CDA /* SwitchDeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchDeviceViewController.swift; path = "UI/View Controllers/SwitchDeviceViewController.swift"; sourceTree = "<group>"; };
 		D5C367391EE4C055001D3CDA /* DevicesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DevicesTableViewCell.swift; path = UI/Views/DevicesTableViewCell.swift; sourceTree = "<group>"; };
 		D5D6E7831EDD153B004A0E91 /* FeatherPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeatherPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				D5375B1C1EDD34FD00FB45A5 /* FeatherPadClient.swift */,
+				D5B91C411EEC9BE000D79372 /* FeatherPadClientError.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -309,12 +312,12 @@
 		D5D6E7BC1EDD15C1004A0E91 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				D5584FAB1EE090F8002BF512 /* LaunchScreen.storyboard */,
 				D50831381EE38E09009BA879 /* Main.storyboard */,
 				D530D5231EE51EE8007DB0C7 /* Devices.storyboard */,
 				D501B2501EE48F6400D68603 /* Login */,
 				D501B24F1EE48F5600D68603 /* Home */,
 				D501B24E1EE48F4400D68603 /* History */,
-				D5584FAB1EE090F8002BF512 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 				D50784F61EE65CDD00D2312A /* TemperatureHumidityLabel.swift in Sources */,
 				D508790E1EDF887F00F11156 /* LoginTextField.swift in Sources */,
 				D5375B1D1EDD34FD00FB45A5 /* FeatherPadClient.swift in Sources */,
+				D5B91C421EEC9BE000D79372 /* FeatherPadClientError.swift in Sources */,
 				D52065191EE0F2DB00CB155C /* BaseNavigationController.swift in Sources */,
 				D5C367381EE4B996001D3CDA /* SwitchDeviceViewController.swift in Sources */,
 				D5C3673A1EE4C055001D3CDA /* DevicesTableViewCell.swift in Sources */,

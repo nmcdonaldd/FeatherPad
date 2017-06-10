@@ -24,8 +24,21 @@
 
 import UIKit
 import SVProgressHUD
+// Following are for the QRCodeReader.
+import QRCodeReader
+import AVFoundation
 
 class SwitchDeviceViewController: UIViewController {
+    
+    /// QRReader.
+    fileprivate lazy var reader: QRCodeReader = QRCodeReader()
+    fileprivate lazy var readerVC: QRCodeReaderViewController = {
+        let builder = QRCodeReaderViewControllerBuilder {
+            $0.reader = QRCodeReader(metadataObjectTypes: [AVMetadataObjectTypeQRCode], captureDevicePosition: .back)
+            $0.showTorchButton = true
+        }
+        return QRCodeReaderViewController(builder: builder)
+    }()
     
     /// TableView holding all of the devices.
     @IBOutlet weak var switchDevicesTableView: UITableView!
@@ -47,6 +60,53 @@ class SwitchDeviceViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func addDeviceButtonTapped(_ sender: UIBarButtonItem) {
+        self.readerVC.modalPresentationStyle = .overFullScreen
+        self.readerVC.delegate = self
+        self.present(self.readerVC, animated: true, completion: nil)
+    }
+}
+
+extension SwitchDeviceViewController: QRCodeReaderViewControllerDelegate {
+    func readerDidCancel(_ reader: QRCodeReaderViewController) {
+        self.reader.stopScanning()
+        self.dismiss(animated: true, completion: nil)
+    }
+    func reader(_ reader: QRCodeReaderViewController, didSwitchCamera newCaptureDevice: AVCaptureDeviceInput) {
+        // Is this needed? Too bad there are no optional protocol methods in Swift natively :/
+    }
+    func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
+        self.reader.stopScanning()
+        self.dismiss(animated: true) { [weak self] in
+            guard let strongSelf = self else {
+                return
+            }
+            let alert = UIAlertController(title: "Add New Device", message: "What's this device's name", preferredStyle: .alert)
+            alert.addTextField(configurationHandler: { (textField: UITextField) in
+                textField.placeholder = "Timmy's Pad"
+            })
+            let okayAction = UIAlertAction(title: "Okay", style: .default, handler: { (action: UIAlertAction) in
+                // Add the device to the user's account.
+                let deviceName = alert.textFields?[0].text ?? "FeatherPad \(User.currentUser?.associatedDevices?.count ?? 1)"
+                let deviceID = result.value
+                SVProgressHUD.show()
+                User.currentUser?.addDeviceWithID(deviceID, withName: deviceName, success: { (device: FeatherPadDevice?) in
+                    SVProgressHUD.dismiss()
+                    SVProgressHUD.showSuccess(withStatus: "New FeatherPad Device Added")
+                    strongSelf.devices = User.currentUser?.associatedDevices
+                    strongSelf.switchDevicesTableView.reloadData()
+                }, failure: { (error: Error?) in
+                    SVProgressHUD.dismiss()
+                    SVProgressHUD.showError(withStatus: error?.localizedDescription)
+                })
+            })
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(okayAction)
+            alert.addAction(cancelAction)
+            strongSelf.present(alert, animated: true, completion: nil)
+        }
     }
 }
 

@@ -83,15 +83,32 @@ class User {
         }
     }
     
-    /// This method will post the logout notification to NotificationCenter.
-    class func logoutCurrentUser(completion: (()->Swift.Void)?) {
-        User.currentUser = nil
-        NotificationCenter.default.post(name: UserNotificationCenterOps.userDidLogout.notification, object: nil)
-        completion?()
-    }
-    
     init(withDevices featherPadDevices: [FeatherPadDevice]) {
         self.associatedDevices = featherPadDevices
+    }
+    
+    /// Adds the device to the user's account.
+    func addDeviceWithID(_ deviceID: String, withName deviceName: String, success: @escaping (FeatherPadDevice?)->(), failure: @escaping (Error?)->()) {
+        if let devices = self.associatedDevices {
+            for device in devices {
+                if device.id! == deviceID {
+                    failure(FeatherPadDeviceError.userAlreadyOwnsDevice)
+                }
+            }
+        }
+        
+        let fpClient = FeatherPadClient()
+        fpClient.addDeviceToUserAccount(deviceID: deviceID, deviceName: deviceName, user: self, success: { (newDevice: FeatherPadDevice?) in
+            guard newDevice != nil else {
+                return
+            }
+            if self.associatedDevices == nil {
+                self.associatedDevices = [FeatherPadDevice]()
+            }
+            self.associatedDevices?.append(newDevice!)
+        }) { (error: Error?) in
+            failure(error)
+        }
     }
     
     class func loginUser(withUsername username: String?, password: String?, success: @escaping ()->(), failure: @escaping (Error?)->()) {
@@ -107,5 +124,12 @@ class User {
         }) { (error: Error?) in
             failure(error)
         }
+    }
+    
+    /// This method will post the logout notification to NotificationCenter.
+    class func logoutCurrentUser(completion: (()->Swift.Void)?) {
+        User.currentUser = nil
+        NotificationCenter.default.post(name: UserNotificationCenterOps.userDidLogout.notification, object: nil)
+        completion?()
     }
 }

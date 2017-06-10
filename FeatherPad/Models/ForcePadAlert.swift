@@ -65,7 +65,7 @@ class ForcePadAlert {
         case "NONE":
             self.alertingSensor = .middle
         default:
-            print("THIS IS EMBARRASSING, THIS SHOULD BE PRINTED LMAO.")
+            print("THIS IS EMBARRASSING, THIS SHOULD BE PRINTED.")
         }
         
         let df = DateFormatter()

@@ -8,6 +8,7 @@ target 'FeatherPad' do
   # Pods for FeatherPad
   pod 'SwiftDate'
   pod 'SVProgressHUD'
+  pod 'QRCodeReader.swift'
 
   target 'FeatherPadTests' do
     inherit! :search_paths
