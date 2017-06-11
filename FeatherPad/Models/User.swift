@@ -37,7 +37,6 @@ enum UserNotificationCenterOps: String {
 }
 
 class User {
-    
     private static var defaultUserDevicesIDsIdentifier = "default_device_ids"
     var associatedDevices: [FeatherPadDevice]?
     private static var _currentUser: User?
@@ -106,6 +105,7 @@ class User {
                 self.associatedDevices = [FeatherPadDevice]()
             }
             self.associatedDevices?.append(newDevice!)
+            success(newDevice!)
         }) { (error: Error?) in
             failure(error)
         }

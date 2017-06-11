@@ -50,8 +50,9 @@ class FeatherPadClient {
             }
             
             // Cast the return value as an array of [String: Any?].
-            if let dictionaries = try? JSONSerialization.jsonObject(with: response!, options: []) as? [[String: Any?]] {
-                let devices = FeatherPadDevice.DevicesFromDict(dictionaries!)
+            if let dictionaries = try? JSONSerialization.jsonObject(with: response!, options: []) as? [String: Any?] {
+                let devicesArr = dictionaries?["devices"] as? [[String: Any?]]
+                let devices = FeatherPadDevice.DevicesFromDict(devicesArr!)
                 let loggedInUser = User(withDevices: devices)
                 
                 // Return the user that we just logged in.
@@ -69,7 +70,7 @@ class FeatherPadClient {
     
     /// Method to get the data of a device.
     func addDeviceToUserAccount(deviceID: String, deviceName: String, user: User, success: @escaping (FeatherPadDevice?)->(), failure: @escaping (Error?)->()) {
-        self.api(endpoint: FeatherPadClient.addDeviceToAccountEndpiont + "/\(deviceID)/12/\(deviceName)", type: .post, success: { (response: Data?) in
+        self.api(endpoint: FeatherPadClient.addDeviceToAccountEndpiont + "/\(deviceID)/2/\(deviceName)", type: .post, success: { (response: Data?) in
             // Success block should handle creating the device object and returning it.
             guard response != nil else {
                 failure(FeatherPadClientError.InvalidResponse("Server returned nil data"))
