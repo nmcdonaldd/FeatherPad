@@ -85,7 +85,7 @@ extension SwitchDeviceViewController: QRCodeReaderViewControllerDelegate {
             }
             let alert = UIAlertController(title: "Add New Device", message: "What's this device's name", preferredStyle: .alert)
             alert.addTextField(configurationHandler: { (textField: UITextField) in
-                textField.placeholder = "Timmy's Pad"
+                textField.placeholder = "Ex: Timmy's Pad"
             })
             let okayAction = UIAlertAction(title: "Okay", style: .default, handler: { (action: UIAlertAction) in
                 // Add the device to the user's account.
@@ -94,7 +94,7 @@ extension SwitchDeviceViewController: QRCodeReaderViewControllerDelegate {
                 SVProgressHUD.show()
                 User.currentUser?.addDeviceWithID(deviceID, withName: deviceName, success: { (device: FeatherPadDevice?) in
                     SVProgressHUD.dismiss()
-                    SVProgressHUD.showSuccess(withStatus: "New FeatherPad Device Added")
+                    SVProgressHUD.showSuccess(withStatus: "New FeatherPad device added!")
                     strongSelf.devices = User.currentUser?.associatedDevices
                     strongSelf.switchDevicesTableView.reloadData()
                 }, failure: { (error: Error?) in

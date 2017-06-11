@@ -40,12 +40,6 @@ enum FeatherPadDeviceError: LocalizedError {
     }
 }
 
-//extension FeatherPadDeviceError: LocalizedError {
-//    var errorDescription: String {
-//        return "You have already added this device to your account."
-//    }
-//}
-
 class FeatherPadDevice: Hashable {
     
     /// Name of the device.
