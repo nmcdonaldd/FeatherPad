@@ -68,7 +68,6 @@ class HistoryViewController: UIViewController {
     @objc private func loadReadings() {
         // Load the currently-selected device's readings.
         guard let device = FeatherPadDevice.currentSelectedDevice else {
-            print("No devices!")
             return
         }
         device.updateDeviceReadings(success: { (tempHum: [TempHumReading]?, alerts: [ForcePadAlert]?) in

@@ -45,7 +45,7 @@ class HomeViewController: UIViewController {
         
         self.featherPadLeftSideWarningImageView.image = UIImage(cgImage: (self.featherPadRightSideWarningImageView.image?.cgImage)!, scale: (self.featherPadRightSideWarningImageView.image?.scale)!, orientation: UIImageOrientation.upMirrored)
         self.featherPadLeftSideWarningImageView.isHidden = true
-        self.featherPadRightSideWarningImageView.isHidden = false
+        self.featherPadRightSideWarningImageView.isHidden = true
         
         Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.getUpdatedReadings), userInfo: nil, repeats: true)
         
@@ -57,14 +57,26 @@ class HomeViewController: UIViewController {
         guard let device = FeatherPadDevice.currentSelectedDevice else {
             return
         }
-        
         device.updateDeviceReadings(success: { (newTempsHums: [TempHumReading]?, newAlerts: [ForcePadAlert]?) in
             // Update temp/hum labels.
-            let newest = newTempsHums?.last
+            let newest = newTempsHums?.first
             DispatchQueue.main.async {
                 SVProgressHUD.dismiss()
                 self.temperatureLabel.text = newest?.formattedTemperature
                 self.humidityLabel.text = "\((newest?.humidityValue) ?? 18)%"
+                self.featherPadLeftSideWarningImageView.isHidden = true
+                self.featherPadRightSideWarningImageView.isHidden = true
+                guard let lastAlert = newAlerts?.last else {
+                    return
+                }
+                switch lastAlert.alertingSensor {
+                case .left:
+                    self.featherPadLeftSideWarningImageView.isHidden = false
+                case .right:
+                    self.featherPadRightSideWarningImageView.isHidden = false
+                default:
+                    print("Oopsfjalksdfjlk")
+                }
             }
         }) { (error: Error?) in
             // Nothing for now.

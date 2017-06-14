@@ -77,6 +77,7 @@ extension SwitchDeviceViewController: QRCodeReaderViewControllerDelegate {
     func reader(_ reader: QRCodeReaderViewController, didSwitchCamera newCaptureDevice: AVCaptureDeviceInput) {
         // Is this needed? Too bad there are no optional protocol methods in Swift natively :/
     }
+    
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
         self.reader.stopScanning()
         self.dismiss(animated: true) { [weak self] in
@@ -87,6 +88,7 @@ extension SwitchDeviceViewController: QRCodeReaderViewControllerDelegate {
             alert.addTextField(configurationHandler: { (textField: UITextField) in
                 textField.placeholder = "Ex: Timmy's Pad"
             })
+            
             let okayAction = UIAlertAction(title: "Okay", style: .default, handler: { (action: UIAlertAction) in
                 // Add the device to the user's account.
                 let deviceName = alert.textFields?[0].text ?? "FeatherPad \(User.currentUser?.associatedDevices?.count ?? 1)"

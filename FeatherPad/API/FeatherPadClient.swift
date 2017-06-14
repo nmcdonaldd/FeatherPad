@@ -118,7 +118,7 @@ class FeatherPadClient {
     
     /// Method to get the data of ForcePadAlert readigns from the API.
     func getForcePadAlertsForDeviceWithID(_ id: String, success: @escaping ([ForcePadAlert]?)->(), failure: @escaping (Error?)->()) {
-        self.api(endpoint: FeatherPadClient.readForcePadAlertsEndpoint, type: .get, success: { (response: Data?) in
+        self.api(endpoint: FeatherPadClient.readForcePadAlertsEndpoint + "/\(id)", type: .get, success: { (response: Data?) in
             // This block should handle creating the alert objects and passing them off to the success.
             guard response != nil else {
                 failure(FeatherPadClientError.InvalidResponse("Server returned nil data"))
